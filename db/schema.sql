@@ -6,7 +6,6 @@ USE job_aid_db;
 CREATE TABLE customer
 (
 	id int NOT NULL AUTO_INCREMENT,
-	job_id Int,
 	name_firstName varchar(255) NOT NULL,
 	name_firstLast varchar(255) NOT NULL,
 	name_companyName varchar(255) ,
@@ -22,6 +21,7 @@ CREATE TABLE customer
 CREATE TABLE job_type
 (
 	job_id int NOT NULL AUTO_INCREMENT,
+	customer_id int,
 	heating_syst BOOLEAN DEFAULT false,
 	cooling_syst BOOLEAN DEFAULT false,
 	ventilation_syst BOOLEAN DEFAULT false,
