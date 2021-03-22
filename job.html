@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Job Details</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link href="stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/logout">
+        Logout
+      </a>
+    </div>
+  </div>
+</nav>
+  <div class="container">
+    <div class="row">
+        <form action="action_page.php"></form>
+      <div class="col-md-3">
+            <h1>Job Details</h1>
+            <div class="container">        
+            <hr>
+            <p><b>Company Name<br>
+            First Name Last Name<br>
+            Position or Department<br>
+            Street Address<br>
+            Street Address Line 2<br>
+            City, State Zip Code<br>
+            <br>
+            Phone Number
+            <br><br>
+            Email</p></b>
+            <br>            
+            <label for="notes"><b>Notes:</b></label>
+            <input type="text" name="notes" id="notes">  
+            <br><br>
+            <button type="submit" class="backButton">Return to Customer</button>
+            <button type="submit" class="submitChgButton">Submit Changes</button>
+            <br><br><hr>
+            <div class="history">
+                <tr><h1>Job History</h1></tr>
+            </div> 
+        </div>
+        </div>
+            <br>
+            <div class="jobDetails">
+                <div class="col-md-9">
+                <br><br><br><br><br>
+            <label for="startDate"><b>Start Date:</b></label>
+            <input type="date" name="startDate" id="startDate">
+            <br>
+            <label for="phase"><b>Phase:</b></label>
+            <select id="phase" name="phase">
+                <option value="Bid">Bid</option>
+                <option value="Work Order">Work Order</option>
+              </select>
+            <br>
+            <label for="status"><b>Status:</b></label>
+            <select id="status" name="status">
+              <option value="Active">Active</option>
+              <option value="Cancelled">Cancelled</option>
+              <option value="Completed">Completed</option>
+            </select>
+            <br>
+            <label for="jobType"><b>Job Type:</b></label>
+            <select id="status" name="status">
+                <option value=""></option>
+                <option value="furnace">Furnace</option>
+                <option value="ac">Air Conditioning</option>
+                <option value="ventilation">Ventilation and Controls</option>
+                <option value="plumbing">Plumbing</option>
+                <option value="tune-ups">Tune-ups</option>
+              </select>
+            <button type="submit" class="addJobtype">Add Job Type</button><br><br>
+            <ul></ul>
+            
+            <br>
+            <br><br>
+            
+          </div>
+        </div>
+        </form><br><br>
+        </div>
+    </div>
+</div>
+         
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/members.js"></script>
+
+</body>
+
+</html>
