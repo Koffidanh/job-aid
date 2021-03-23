@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(authorData),
+        body: JSON.stringify(customerData),
       })
         .then(getCustomers)
         .catch((err) => console.error(err));
