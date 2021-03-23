@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Customer.associate = (models) => {
         //Adding a foreign key to customer
-        Customer.belongsTo(models.JobType, {
+        Customer.hasMany(models.JobType, {
           foreignKey: {
             allowNull: false,
           },
