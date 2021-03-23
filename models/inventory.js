@@ -4,8 +4,14 @@ module.exports = (sequelize, DataTypes) => {
         partId:  {
             type: DataTypes.INTEGER,
         },
+        partName: {
+          type: DataTypes.STRING,
+        },
         price: {
             type: DataTypes.INTEGER,
+        },
+        measuredBy: {
+          type: DataTypes.STRING,
         },
         quantity: {
             type: DataTypes.INTEGER,
@@ -13,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Inventory.associate = (models) => {
         // Adding a foreign key to Inventory
-        Inventory.belongsTo(models.JobType, {
+        Inventory.hasMany(models.JobType, {
           foreignKey: {
             allowNull: false,
           },

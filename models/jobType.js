@@ -1,24 +1,28 @@
 module.exports = (sequelize, DataTypes) => {
     const JobType = sequelize.define('JobType', {
         
-        heatingSyst: {
+        retroFit: {
             type: DataTypes.BOOLEAN,
         },
-        coolingSyst: {
+        newConstruction: {
             type: DataTypes.BOOLEAN,
         },
-        ventilationSyst: {
+        repairWork: {
             type: DataTypes.BOOLEAN,
         },
-        plumbing: {
+        originatedAsSvcCall: {
             type: DataTypes.BOOLEAN,
         },
-        tuneUp: {
+        marketingOriginationInternet: {
+            type: DataTypes.BOOLEAN,
+        },
+        marketingOriginationReferral: {
             type: DataTypes.BOOLEAN,
         },
         notes: {
             type: DataTypes.STRING,
         },
     });
+   
     return JobType;
 };
