@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": ":b.RW!cYRVf3PBv",
+    "password": "",
     "database": "job_aid_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
