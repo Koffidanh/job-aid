@@ -28,9 +28,17 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  //Route for getting the customer page
+
   app.get('/customer', (req, res) =>
     res.sendFile(path.join(__dirname, "../public/customer.html"))
+  );
+
+  app.get('/job', (req, res) =>
+    res.sendFile(path.join(__dirname, "../public/job.html"))
+  );
+
+  app.get('/profile', (req, res) =>
+    res.sendFile(path.join(__dirname, "../public/profile.html"))
   );
 
 };
