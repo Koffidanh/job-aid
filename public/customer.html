@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>Customer Details</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,25 +31,25 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <form action="action_page.php">
+        <form>
           <div class="container">
             <h1>Customer Details</h1>
             <p>Please fill in this form to create / search for an account.</p>
             <hr>
 
             <label for="newCustomer"><b>New</b></label>
-            <input type="radio" name="customerType" id="newCustomer" style="margin-right: 12px;" required>
+            <input type="radio" name="customerType" id="newCustomer" style="margin-right: 12px;">
 
             <label for="existingCustomer"><b>Existing</b></label>
-            <input type="radio" name="customerType" id="existingCustomer" required>
+            <input type="radio" name="customerType" id="existingCustomer">
 
             <section id="newCustomerForm">
               <br>
               <label for="residential"><b>Residential</b></label>
-              <input type="radio" name="jobType" id="residential" style="margin-right: 12px;" required>
+              <input type="radio" name="jobType" id="residential" style="margin-right: 12px;">
 
               <label for="commercial"><b>Commercial</b></label>
-              <input type="radio" name="jobType" id="commerical" required>
+              <input type="radio" name="jobType" id="commerical">
               <br>
               <br>
               <div style="margin-bottom: 2%;">
@@ -66,55 +66,76 @@
                 <input type="text" name="companyName" id="companyName">
 
                 <label for="firstName"><b>First Name</b></label>
-                <input type="text" name="firstName" id="firstName" required>
+                <input type="text" name="firstName" id="firstName">
 
                 <label for="lastName"><b>Last Name</b></label>
-                <input type="text" name="lastName" id="lastName" required>
+                <input type="text" name="lastName" id="lastName">
 
                 <label for="position/department"><b>Position or Department</b></label>
                 <input type="text" name="position/department" id="position/department">
 
                 <label for="phone"><b>Phone Number</b></label>
-                <input type="text" name="phone" id="phone" required>
+                <input type="text" name="phone" id="phone">
 
                 <label for="email"><b>Email</b></label>
-                <input type="text" name="email" id="email" required>
+                <input type="text" name="email" id="email">
 
                 <label for="streetAddress"><b>Street Address</b></label>
-                <input type="text" name="streetAddress" id="streetAddress" required>
+                <input type="text" name="streetAddress" id="streetAddress">
 
                 <label for="streetAddressL2"><b>Street Address Line 2</b></label>
-                <input type="text" name="streetAddressL2" id="streetAddressL2" required>
+                <input type="text" name="streetAddressL2" id="streetAddressL2">
 
                 <label for="city"><b>City</b></label>
-                <input type="text" name="city" id="city" required>
+                <input type="text" name="city" id="city">
 
                 <label for="state"><b>State</b></label>
-                <input type="text" name="state" id="state" required>
+                <input type="text" name="state" id="state">
 
                 <label for="zipCode"><b>Zip Code</b></label>
-                <input type="text" name="zipCode" id="zipCode" required>
+                <input type="text" name="zipCode" id="zipCode">
                 <hr>
-
-                <button type="submit" class="registerbtn">Create Customer</button>
+                <a href="/profile"><button type="button" class="registerbtn">Create
+                    Customer</button></a>
             </section>
 
             <section id="existingCustomerForm">
               <br>
               <label for="firstName"><b>First Name</b></label>
-              <input type="text" name="existingFirstName" id="existingFirstName" required>
+              <input type="text" name="existingFirstName" id="existingFirstName">
 
               <label for="lastName"><b>Last Name</b></label>
-              <input type="text" name="existingLastName" id="existingLastName" required>
+              <input type="text" name="existingLastName" id="existingLastName">
 
               <label for="streetAddress"><b>Street Address</b></label>
-              <input type="text" name="existingStreetAddress" id="existingStreetAddress" required>
-              <button type="submit" class="registerbtn">Search Customer</button>
+              <input type="text" name="existingStreetAddress" id="existingStreetAddress">
+              <button id="registerBtn" type="button" class="registerbtn">Search Customer</button>
             </section>
           </div>
         </form>
       </div>
     </div>
+
+    <section id="searchResults">
+      <h2>Search Results</h2>
+      <hr>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Tel.</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tableCol" style="vertical-align: middle;"><a style="text-decoration: none">Placeholder</a></td>
+            <td class="tableCol" style="vertical-align: middle;"> Placeholder</td>
+            <td class="tableCol" style="text-align:center;"><a class="btn" href="/job">View Jobs</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

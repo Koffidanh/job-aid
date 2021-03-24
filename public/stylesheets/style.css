@@ -58,3 +58,20 @@ a {
   background-color: #f1f1f1;
   text-align: center;
 }
+
+th, td, #continueBtn {
+  font-size: 120%;
+}
+
+.tableCol {
+  background-color: rgb(240, 240, 240);
+}
+
+.backButton {
+    text-decoration: none; 
+    color: black; 
+}
+
+.registerbtn:focus {
+    outline: 0 !important;
+}
