@@ -157,3 +157,8 @@ $('#existingCustomer').click(function () {
     $("#existingCustomerForm").show();
   }
 });
+
+
+$(document).ready(function () {
+  $('#datepicker').datepicker();
+});
