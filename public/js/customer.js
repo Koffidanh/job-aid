@@ -1,7 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
 
-  const nameInput = document.getElementById('customer-name');
+  const firstNameInput = document.getElementById('firstName');
+  const lastNameInput = document.getElementById('lastName');
+  const companyNameInput = document.getElementById('companyName');
+  const positionDepartmentInput = document.getElementById('positionDepartment');
+  const phoneNumberInput = document.getElementById('phoneNumber');
+  const streetAddressInput = document.getElementById('streetAddress');
+  const streetAddressL2Input = document.getElementById('streetAddressL2');
+  const cityInput = document.getElementById('city');
+  const stateInput = document.getElementById('state');
+  const zipCodeInput = document.getElementById('zipCode');
+  const emailInput = document.getElementById('email');
+  const startDateInput = document.getElementById('startDate');
+  const endDateInput = document.getElementById('endDate');
+
   const customerList = document.querySelector('tbody');
 
   // Create an author
@@ -13,21 +26,36 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       body: JSON.stringify(customerData),
     })
-      .then(getCustomers)
+      // .then(getCustomers)
       .catch((err) => console.error(err));
   };
 
-  // Handle when the author form is submitted
+  // Handle when the customer form is submitted
   const handleCustomerFormSubmit = (e) => {
     e.preventDefault();
 
-    if (!nameInput.value.trim()) {
-      alert('Please provide an customer name');
+    if (!firstNameInput.value.trim() || !lastNameInput.value.trim()) {
+      alert('Please provide an customer firstName and LastName');
       return;
     }
 
     insertCustomer({
-      name: nameInput.value.trim(),
+      firstName: firstNameInput.value.trim(),
+      lastName: lastNameInput.value.trim(),
+      companyName: companyNameInput.value.trim(),
+      positionDepartment: positionDepartmentInput.value.trim(),
+      streetAddress: streetAddressInput.value.trim(),
+      streetAddressL2: streetAddressL2Input.value.trim(),
+      phoneNumber: phoneNumberInput.value.trim(),
+      city: cityInput.value.trim(),
+      state: stateInput.value.trim(),
+      ziCode: zipCodeInput.value.trim(),
+      email: emailInput.value.trim(),
+      startDate: startDateInput.value.trim(),
+      endDate: endDateInput.value.trim(),
+      // phase: phaseInput.value.trim(),
+      // class: classInput.value.trim(),
+      // complete: completeInput.value.trim(),
     });
   };
 
@@ -35,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .getElementById('customer-form')
     .addEventListener('submit', handleCustomerFormSubmit);
 
-  // Event handler for the delete author button
+  // Event handler for the delete customer button
   const handleDeleteButtonPress = (e) => {
     const { id } = e.target.parentElement.parentElement;
     fetch(`/api/customers/${id}`, {
@@ -46,12 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }).then(getCustomers);
   };
 
-  // Create list row for authors
+  // Create list row for customer
   const createCustomerRow = (CustomerData) => {
     const tr = document.createElement('tr');
     tr.setAttribute('data-customer', JSON.stringify(customerData));
 
-    // Set each author's ID on the element itself
+    // Set each customer's ID on the element itself
     tr.id = customerData.id;
 
     const td = document.createElement('td');
@@ -67,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     tr.appendChild(lengthTd);
 
-    // "Go to posts" link REVIEW HREF BLOG AUTHOR 
+    // "Go to posts" link REVIEW HREF BLOG customer 
     const postsLink = document.createElement('td');
     postsLink.innerHTML = `<td><a href='/?customer_id=${customerData.id}'>Go to Posts</a></td>`;
     tr.appendChild(postsLink);
@@ -111,29 +139,29 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Grab all the authors
-  const getCustomers = () => {
-    console.log('Get customers is getting called');
-    fetch('/api/customers', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log('Success in getting authors:', authors);
-        const rowsToAdd = [];
-        for (let i = 0; i < data.length; i++) {
-          rowsToAdd.push(createCustomerRow(data[i]));
-        }
-        renderCustomerList(rowsToAdd);
-        nameInput.value = '';
-      })
-      .catch((error) => console.error('Error:', error));
-  };
+  // const getCustomers = () => {
+  //   console.log('Get customers is getting called');
+  //   fetch('/api/customers', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       // console.log('Success in getting authors:', authors);
+  //       const rowsToAdd = [];
+  //       for (let i = 0; i < data.length; i++) {
+  //         rowsToAdd.push(createCustomerRow(data[i]));
+  //       }
+  //       renderCustomerList(rowsToAdd);
+  //       nameInput.value = '';
+  //     })
+  //     .catch((error) => console.error('Error:', error));
+  // };
 
-  // Get the list of authors
-  getCustomers();
+  // // Get the list of authors
+  // getCustomers();
 })
 
 function pageLoad() {
@@ -141,9 +169,7 @@ function pageLoad() {
   $("#existingCustomerForm").hide();
   $("#searchResults").hide();
 }
-
 pageLoad()
-
 $('#newCustomer').click(function () {
   if ($('#newCustomer').is(':checked')) {
     $("#newCustomerForm").show();
@@ -151,8 +177,6 @@ $('#newCustomer').click(function () {
     $("#searchResults").hide();
   }
 });
-
-
 $('#existingCustomer').click(function () {
   if ($('#existingCustomer').is(':checked')) {
     $("#newCustomerForm").hide();
@@ -160,8 +184,6 @@ $('#existingCustomer').click(function () {
     $("#searchResults").show();
   }
 });
-
-
 $(document).ready(function () {
   $('#datepicker').datepicker();
 });

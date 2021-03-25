@@ -1,46 +1,70 @@
 module.exports = (sequelize, DataTypes) => {
     const Customer = sequelize.define('Customer', {
-        
-        firstName:{
+        // newCustomer: {
+        //     type: DataTypes.BOOLEAN,
+        // },
+        // existingCustomer: {
+        //     type: DataTypes.BOOLEAN,
+        // },
+        firstName: {
             type: DataTypes.STRING,
             allowNull: false,
-        } ,
-        lastName:{
-             type: DataTypes.STRING,
-             allowNull: false,
-            },
-        companyName: {
-           type: DataTypes.STRING,
         },
-        companyAddress: {
+        lastName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        positionDepartment: {
+            type: DataTypes.STRING,
+
+        },
+        companyName: {
             type: DataTypes.STRING,
         },
         phoneNumber: {
             type: DataTypes.STRING,
         },
-        startDate: { 
+        streetAddress: {
+            type: DataTypes.STRING,
+        },
+        streetAddressL2: {
+            type: DataTypes.STRING,
+        },
+        city: {
+            type: DataTypes.STRING,
+        },
+        state: {
+            type: DataTypes.STRING,
+        },
+        zipCode: {
+            type: DataTypes.INTEGER,
+        },
+        email: {
+            type: DataTypes.STRING,
+        },
+        startDate: {
             type: DataTypes.DATE,
         },
-        endDate: { 
+        endDate: {
             type: DataTypes.DATE,
         },
-        phase: {
-            type: DataTypes.BOOLEAN,
-        },
-        class: {
-            type: DataTypes.BOOLEAN,
-        },
-        complete: {
-            type: DataTypes.BOOLEAN,
-        },
+        // phase: {
+        //     type: DataTypes.BOOLEAN,
+        // },
+        // class: {
+        //     type: DataTypes.BOOLEAN,
+        // },
+        // complete: {
+        //     type: DataTypes.BOOLEAN,
+        // },
     });
     Customer.associate = (models) => {
         //Adding a foreign key to customer
         Customer.hasMany(models.JobType, {
-          foreignKey: {
-            allowNull: false,
-          },
+            foreignKey: {
+                allowNull: false,
+            },
         });
-      };
+    };
     return Customer;
 };
