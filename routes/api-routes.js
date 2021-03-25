@@ -64,7 +64,7 @@ module.exports = function (app) {
       streetAddressL2: req.body.streetAddressL2,
       city: req.body.city,
       state: req.body.state,
-      ziCode: req.body.ziCode,
+      zipCode: req.body.zipCode,
       email: req.body.email,
 
     }).then((dbCustomer) => res.json(dbCustomer));
