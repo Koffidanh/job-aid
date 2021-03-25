@@ -46,4 +46,27 @@ module.exports = function (app) {
       });
     }
   });
+
+  //
+  // POST route for saving a new post
+  app.post('/api/customers', (req, res) => {
+    console.log(req.body);
+    db.Customer.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      companyName: req.body.companyName,
+      companyAddress: req.body.companyAddress,
+      phoneNumber: req.body.phoneNumber,
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
+      positionDepartment: req.body.positionDepartment,
+      streetAddress: req.body.streetAddress,
+      streetAddressL2: req.body.streetAddressL2,
+      city: req.body.city,
+      state: req.body.state,
+      ziCode: req.body.ziCode,
+      email: req.body.email,
+
+    }).then((dbCustomer) => res.json(dbCustomer));
+  });
 };

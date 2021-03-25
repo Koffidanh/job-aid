@@ -54,11 +54,11 @@
               <br>
               <div style="margin-bottom: 2%;">
                 <label for="startDate"><b>Start Date &nbsp; </b></label>
-                <input type='text' class="form-control" data-provide="datepicker" placeholder='Select Date'
+                <input type='text' id="startDate"class="form-control" data-provide="datepicker" placeholder='Select Date'
                   style='width: 300px;'>
                 <br>
                 <label for=" endDate" style="margin-right: 12px;"><b>End Date</b></label>
-                <input type='text' class="form-control" data-provide='datepicker' placeholder='Select Date'
+                <input type='text' id="endDate" class="form-control" data-provide='datepicker' placeholder='Select Date'
                   style='width: 300px;'>
                 <br>
                 <br>
@@ -72,10 +72,10 @@
                 <input type="text" name="lastName" id="lastName">
 
                 <label for="position/department"><b>Position or Department</b></label>
-                <input type="text" name="position/department" id="position/department">
+                <input type="text" name="position/department" id="positionDepartment">
 
                 <label for="phone"><b>Phone Number</b></label>
-                <input type="text" name="phone" id="phone">
+                <input type="text" name="phone" id="phoneNumber">
 
                 <label for="email"><b>Email</b></label>
                 <input type="text" name="email" id="email">
@@ -95,10 +95,11 @@
                 <label for="zipCode"><b>Zip Code</b></label>
                 <input type="text" name="zipCode" id="zipCode">
                 <hr>
-                <a href="/profile"><button type="button" class="registerbtn">Create
+                <a href="/profile"><button type="submit" class="registerbtn">Create
                     Customer</button></a>
             </section>
-
+          </form>
+          <form>
             <section id="existingCustomerForm">
               <br>
               <label for="firstName"><b>First Name</b></label>
