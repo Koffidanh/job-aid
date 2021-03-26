@@ -6,6 +6,9 @@ module.exports = (sequelize, DataTypes) => {
         // existingCustomer: {
         //     type: DataTypes.BOOLEAN,
         // },
+        residentialCommercial: {
+            type: DataTypes.STRING,
+        },
         firstName: {
             type: DataTypes.STRING,
             allowNull: false,

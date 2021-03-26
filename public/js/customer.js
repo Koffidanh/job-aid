@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
-
+ 
   const firstNameInput = document.getElementById('firstName');
   const lastNameInput = document.getElementById('lastName');
   const companyNameInput = document.getElementById('companyName');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const emailInput = document.getElementById('email');
   const startDateInput = document.getElementById('startDate');
   const endDateInput = document.getElementById('endDate');
-
+  const residentialCommercialInput = document.getElementById('residentialCommercial');
   const customerList = document.querySelector('tbody');
 
   // Create an author
@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     insertCustomer({
+      
       firstName: firstNameInput.value.trim(),
       lastName: lastNameInput.value.trim(),
       companyName: companyNameInput.value.trim(),
@@ -49,10 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
       phoneNumber: phoneNumberInput.value.trim(),
       city: cityInput.value.trim(),
       state: stateInput.value.trim(),
-      ziCode: zipCodeInput.value.trim(),
+      zipCode: zipCodeInput.value.trim(),
       email: emailInput.value.trim(),
       startDate: startDateInput.value.trim(),
       endDate: endDateInput.value.trim(),
+      residentialCommercial: residentialCommercialInput.value.trim(),
       // phase: phaseInput.value.trim(),
       // class: classInput.value.trim(),
       // complete: completeInput.value.trim(),
@@ -187,3 +189,5 @@ $('#existingCustomer').click(function () {
 $(document).ready(function () {
   $('#datepicker').datepicker();
 });
+
+

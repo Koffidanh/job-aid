@@ -66,7 +66,7 @@ module.exports = function (app) {
       state: req.body.state,
       zipCode: req.body.zipCode,
       email: req.body.email,
-
+      residentialCommercial: req.body.residentialCommercial
     }).then((dbCustomer) => res.json(dbCustomer));
   });
 };
