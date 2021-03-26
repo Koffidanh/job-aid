@@ -1,0 +1,77 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/logout">
+                Logout
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <form action="action_page.php"></form>
+        <div class="col-md-3">
+            <h1>Customer Profile</h1>
+            <div class="container">
+                <hr>
+                <p><b>Company Name: {{customers.companyName }}<br>
+                        First Name Last Name: {{customers.firstName }} {{ }} {{customer.lastName}}<br>
+                        Position or Department: {{customers.positionDepartment}}<br>
+                        Start Date: {{customers.startDate}}<br>
+                        End Date: {{customers.endDate}}<br>
+                        Phone Number: {{customers.phoneNumber}}<br>
+                        Email: {{customers.email}}<br>
+                        Street Address: {{customers.streetAddress}}<br>
+                        Street Address Line 2: {{customers.streetAddress}}<br>
+                        City: {{customers.city}}<br>
+                        State: {{customers.state}}<br>
+                        Zip Code: {{customers.zipCode}}<br>
+                        <br>
+                </p></b>
+                <br>
+                <label for="notes"><b>Notes:</b></label>
+                <input type="text" name="notes" id="notes">
+                <br><br>
+                <a href="/customer"><button type="submit" class="backButton">Return to Search</button></a>
+                <button type="submit" class="submitChgButton">Submit Changes</button>
+                <br><br>
+            </div>
+        </div>
+    </div>
+    <br>
+    <section id="searchResults">
+        <h2>Job History</h2>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Job Type</th>
+                    <th>Start Date</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            {{#each customers}}
+            <tbody>
+                <tr>
+                    <td class="tableCol" style="vertical-align: middle;"><a
+                            style="text-decoration: none">{{Placeholder}}</a></td>
+                    <td class="tableCol" style="vertical-align: middle;"> {{Placeholder}}</td>
+                    <td class="tableCol" style="vertical-align: middle;">{{Placeholder}}</td>
+                    <td class="tableCol" style="text-align:center;"><a class="btn" href="/job">Add Job</a></td>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+    </section>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/members.js"></script>
