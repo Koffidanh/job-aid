@@ -1,0 +1,159 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+label {
+  color: rgb(53, 52, 52)
+}
+
+p {
+  color: black
+}
+
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text],input[type=email] {
+  width: 50%;
+  box-sizing: border-box;
+  border: 2px solid #83827E;
+  border-radius: 0px;
+  font-size: 16px;
+  background-color: whitesmoke;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: White;
+  color: rgb(53, 52, 52);
+  padding: 4px 10px;
+  margin: 30px 0;
+  border: 2px solid #83827E;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+  border-radius: 0px;
+  transition-duration: 0.4s;
+}
+
+.registerbtn:hover {
+  background-color: #1F3456; /* Green */
+  color: White;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+#searchTable {
+  width: 100%;
+  border: 2px solid #83827E;;
+  background-color: #1F3456;
+}
+
+.tableHead {
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  padding: 4px;
+  border-radius: 0px;
+}
+
+.tableCol {
+  color: rgb(53, 52, 52);
+}
+
+.backButton {
+    text-decoration: none; 
+    color: black; 
+}
+
+.registerbtn:focus {
+    outline: 0 !important;
+}
+
+.customerCard {
+  padding: 16px;
+  border: 1px solid #333 ;
+  background-color:#343a40;
+  color:#f1f1f1
+}
+
+
+.customerContainer {
+  padding: 16px;
+  border: 1px solid #333 ;
+  background-color:#343a40;
+  color:#f1f1f1
+}
+
+.customer {
+  padding: 16px;
+  border: 1px solid #333 ;
+}
+
+
+/* Overwrite default styles of hr */
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+
+header {
+	border-bottom: 8px solid white;
+	box-shadow: 0 5px 8px -5px #333;
+}
+
+footer {
+	flex: 0 0 auto;
+	padding: 15px 0 25px;
+	/* Keeps Footer at the bottom of the page */
+	color: #fff;
+	/* Center footer content */
+	text-align: center;
+	background: #343a40;
+	border-top: 8px solid white;
+	box-shadow: 0 5px 8px 5px #333;
+	width: 100%;
+	line-height: 5px;
+	text-size-adjust: 10px;
+}
+
+h1 {
+	text-align: left;
+	color: rgb(53, 52, 52);
+	background-color: none;
+}
+
+body {
+  font-size: 16px;
+  line-height: 30px;  
+  background: linear-gradient(90deg,#CBD4D7,#4f5253);
+}
+
+button {
+  margin-top: 10px;
+	background-color: #fff;
+	border: 1px solid #343a40;
+  }
+
+.radioclass {
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+  border-radius: 50%;
+}
