@@ -22,20 +22,21 @@ module.exports = (app) => {
         }).then((dbMember) => res.json(dbMember));
     });
     //
-    app.get('/api/customers', (req, res) => {
-        // Here we add an "include" property to our options in our findAll query
-        // We set the value to an array of the models we want to include in a left outer join
-        // In this case, just db.Post
-        db.Customer.findAll({
-            include: [db.Post],
-        }).then((dbCustomer) => res.json(dbCustomer));
-    });
+    // app.get('/api/customers', (req, res) => {
+    //     // Here we add an "include" property to our options in our findAll query
+    //     // We set the value to an array of the models we want to include in a left outer join
+    //     // In this case, just db.Post
+    //     db.Customer.findAll({
+    //         where: req.query,
+    //         include: [db.Post],
+    //     }).then((dbCustomer) => res.json(dbCustomer));
+    // });
 
-    app.get('/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber', (req, res) => {
+    app.get('/api/customer/', (req, res) => {
         // Here we add an "include" property to our options in our findOne query
         // We set the value to an array of the models we want to include in a left outer join
         // In this case, just db.Post
-        db.Customer.findOne({
+        db.Customer.findAll({
             where: {
                 $or: [{
                     id: req.params.id
