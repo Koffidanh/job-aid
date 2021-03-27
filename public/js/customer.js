@@ -224,28 +224,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // getCustomers();
 })
 
-function pageLoad() {
-  $("#newCustomerForm").hide();
-  $("#existingCustomerForm").hide();
-  $("#searchResults").hide();
-}
-pageLoad()
-$('#newCustomer').click(function () {
-  if ($('#newCustomer').is(':checked')) {
-    $("#newCustomerForm").show();
-    $("#existingCustomerForm").hide();
-    $("#searchResults").hide();
-  }
-});
-$('#existingCustomer').click(function () {
-  if ($('#existingCustomer').is(':checked')) {
-    $("#newCustomerForm").hide();
-    $("#existingCustomerForm").show();
-    $("#searchResults").show();
-  }
-});
-$(document).ready(function () {
-  $('#datepicker').datepicker();
-});
+// function pageLoad() {
+//   $("#newCustomerForm").hide();
+//   $("#existingCustomerForm").hide();
+//   $("#searchResults").hide();
+// }
+// pageLoad()
+// $('#newCustomer').click(function () {
+//   if ($('#newCustomer').is(':checked')) {
+//     $("#newCustomerForm").show();
+//     $("#existingCustomerForm").hide();
+//     $("#searchResults").hide();
+//   }
+// });
+// $('#existingCustomer').click(function () {
+//   if ($('#existingCustomer').is(':checked')) {
+//     $("#newCustomerForm").hide();
+//     $("#existingCustomerForm").show();
+//     $("#searchResults").show();
+//   }
+// });
+// $(document).ready(function () {
+//   $('#datepicker').datepicker();
+// });
 
 

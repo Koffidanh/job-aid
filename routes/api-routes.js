@@ -92,3 +92,6 @@ module.exports = function (app) {
     }).then((dbCustomer) => res.render(dbCustomer));
   });
 };
+
+// search route get customers with filter
+
