@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
- 
+
+  const searchInput = document.getElementById('existingCustomer');
   const firstNameInput = document.getElementById('firstName');
   const lastNameInput = document.getElementById('lastName');
   const companyNameInput = document.getElementById('companyName');
@@ -17,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const residentialCommercialInput = document.getElementById('residentialCommercial');
   const customerList = document.querySelector('tbody');
 
-  // Create an author
+
+  // Insert customer to database
   const insertCustomer = (customerData) => {
     fetch('/api/customers', {
       method: 'POST',
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     insertCustomer({
-      
+
       firstName: firstNameInput.value.trim(),
       lastName: lastNameInput.value.trim(),
       companyName: companyNameInput.value.trim(),
@@ -64,6 +66,62 @@ document.addEventListener('DOMContentLoaded', () => {
   document
     .getElementById('customer-form')
     .addEventListener('submit', handleCustomerFormSubmit);
+
+
+
+
+
+  // Find customer
+  const findCustomer = (customerData) => {
+    fetch('/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then((response) => response.json())
+      .catch((err) => console.error(err));
+  };
+
+
+
+  // Search function
+  const handleCustomerSearch = (e) => {
+    e.preventDefault();
+
+    if (!searchInput.value.trim()) {
+      alert('Please provide a search input');
+      return;
+    }
+
+    findCustomer({
+
+      firstName: firstNameInput.value.trim(),
+      lastName: lastNameInput.value.trim(),
+      // companyName: companyNameInput.value.trim(),
+      // positionDepartment: positionDepartmentInput.value.trim(),
+      // streetAddress: streetAddressInput.value.trim(),
+      // streetAddressL2: streetAddressL2Input.value.trim(),
+      phoneNumber: phoneNumberInput.value.trim(),
+      // city: cityInput.value.trim(),
+      // state: stateInput.value.trim(),
+      // zipCode: zipCodeInput.value.trim(),
+      // email: emailInput.value.trim(),
+      // startDate: startDateInput.value.trim(),
+      // endDate: endDateInput.value.trim(),
+      // residentialCommercial: residentialCommercialInput.value.trim(),
+      // phase: phaseInput.value.trim(),
+      // class: classInput.value.trim(),
+      // complete: completeInput.value.trim(),
+    });
+  };
+
+  document
+    .getElementById('searchCustomer')
+    .addEventListener('submit', handleCustomerSearch);
+
+
+
 
   // Event handler for the delete customer button
   const handleDeleteButtonPress = (e) => {

@@ -49,7 +49,6 @@ module.exports = (app) => {
                 ]
             },
         }).then((dbCustomer) => res.json(dbCustomer))
-        .then(res.render('customer', {customers}))
     });
 
     app.post('/api/customers', (req, res) => {

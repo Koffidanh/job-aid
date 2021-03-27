@@ -85,7 +85,7 @@
                   Customer</button></a>
           </section>
       </form>
-      <form>
+      <form id="searchCustomer">
         <section id="existingCustomerForm">
           <br>
           <label for="firstName"><b>First Name|| Last Name || Address || Phone Number</b></label>
@@ -95,7 +95,7 @@
 
           <label for="streetAddress"><b>Street Address</b></label>
           <input type="text" name="existingStreetAddress" id="existingStreetAddress"> --}}
-          <button  type= "submit" id="registerBtn" type="button" class="registerbtn">Search Customer</button>
+          <button type="submit" id="registerBtn" class="registerbtn">Search Customer</button>
         </section>
     </div>
     </form>
@@ -120,7 +120,8 @@
             {{this.lastName}}</a></td>
         <td class="tableCol" style="vertical-align: middle;"> {{this.phoneNumber}}</td>
         <td class="tableCol" style="text-align:center;"><a class="btn" href="/job:id">View Jobs</a>
-        <a id="profileBtn" class="btn" href="/profile:id">View Profile</a></td>
+          <a id="profileBtn" class="btn" href="/profile:id">View Profile</a>
+        </td>
       </tr>
     </tbody>
     {{/each}}
