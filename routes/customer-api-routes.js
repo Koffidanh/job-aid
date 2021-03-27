@@ -45,11 +45,11 @@ module.exports = (app) => {
                 { email: req.body.email },
                 { streetAddress: req.body.streetAddress },
                 { streetAddressL2: req.body.streetAddressL2 },
-                { phoneNumber: req.body.phoneNumber }
-                },
-
-
-        }).then((dbCustomer) => res.json(dbCustomer));
+                { phoneNumber: req.body.phoneNumber },
+                ]
+            },
+        }).then((dbCustomer) => res.json(dbCustomer))
+        .then(res.render('customer', {customers}))
     });
 
     app.post('/api/customers', (req, res) => {
