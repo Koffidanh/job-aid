@@ -9,7 +9,7 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render('members');
+      res.render('customer');
     }
     res.render('signup');
   });
@@ -17,21 +17,21 @@ module.exports = function (app) {
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render('members');
+      res.render('customer');
     }
     res.render('login');
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function (req, res) {
-    res.render('members');
+  app.get("/customer", isAuthenticated, function (req, res) {
+    res.render('customer');
   });
-//
-app.get("/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber",  function (req, res) {
-  res.render('customer');
-});
-  
+  //
+  app.get("/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber", function (req, res) {
+    res.render('customer');
+  });
+
   app.get('/signup', (req, res) => res.render('signup'));
   app.get('/login', (req, res) => res.render('login'));
   app.get('/customer', (req, res) => res.render('customer'));
