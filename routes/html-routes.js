@@ -27,15 +27,18 @@ module.exports = function (app) {
   app.get("/members", isAuthenticated, function (req, res) {
     res.render('members');
   });
-
+//
+app.get("/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber",  function (req, res) {
+  res.render('customer');
+});
   
   app.get('/signup', (req, res) => res.render('signup'));
-  app.get('/signup', (req, res) => res.render('login'));
-
+  app.get('/login', (req, res) => res.render('login'));
   app.get('/customer', (req, res) => res.render('customer'));
+  //app.get('/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber', (req, res) => res.render('profile'));
 
-  app.get('/job', (req, res) => res.render('job'));
+  app.get('/job/:id', (req, res) => res.render('job'));
 
-  app.get('/profile', (req, res) => res.render('profile'));
+  app.get('/profile/:id', (req, res) => res.render('profile'));
 
 };

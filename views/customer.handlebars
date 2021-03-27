@@ -89,7 +89,7 @@
         <section id="existingCustomerForm">
           <br>
           <label for="firstName"><b>First Name|| Last Name || Address || Phone Number</b></label>
-          <input type="text" name="existingFirstName" id="existingCustomer">
+          <input type="text" name="existingCustomer" id="existingCustomer">
           {{!-- <label for="lastName"><b>Last Name</b></label>
           <input type="text" name="existingLastName" id="existingLastName">
 
@@ -116,10 +116,11 @@
     {{#each customers}}
     <tbody>
       <tr>
-        <td class="tableCol" style="vertical-align: middle;"><a style="text-decoration: none">{{customers.firstName}}
-            {{customers.lastName}}</a></td>
-        <td class="tableCol" style="vertical-align: middle;"> {{customers.phoneNumber}}</td>
-        <td class="tableCol" style="text-align:center;"><a class="btn" href="/job">View Jobs</a></td>
+        <td class="tableCol" style="vertical-align: middle;"><a style="text-decoration: none">{{this.firstName}}
+            {{this.lastName}}</a></td>
+        <td class="tableCol" style="vertical-align: middle;"> {{this.phoneNumber}}</td>
+        <td class="tableCol" style="text-align:center;"><a class="btn" href="/job:id">View Jobs</a>
+        <a id="profileBtn" class="btn" href="/profile:id">View Profile</a></td>
       </tr>
     </tbody>
     {{/each}}
