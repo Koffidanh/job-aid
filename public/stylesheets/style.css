@@ -18,9 +18,10 @@ p {
   padding: 16px;
 }
 
+
 /* Full-width input fields */
-input[type=text],input[type=email] {
-  width: 100%;
+/* input[type=text],input[type=email] {
+  width: 50%;
   box-sizing: border-box;
   border: 2px solid #83827E;
   border-radius: 0px;
@@ -30,10 +31,21 @@ input[type=text],input[type=email] {
   background-position: 10px 10px; 
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
+} */
+input[type=text],input[type=email] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #83827E;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: whitesmoke;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
 }
-
 /* Set a style for the submit/register button */
-.registerbtn {
+/* .registerbtn {
   background-color: White;
   color: rgb(53, 52, 52);
   padding: 4px 10px;
@@ -43,6 +55,19 @@ input[type=text],input[type=email] {
   width: 50%;
   opacity: 0.9;
   border-radius: 0px;
+  transition-duration: 0.4s;
+} */
+
+.registerbtn {
+  background-color: White;
+  color: rgb(53, 52, 52);
+  padding: 4px 10px;
+  margin: 30px 0;
+  border: 2px solid #83827E;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 5px;
   transition-duration: 0.4s;
 }
 
