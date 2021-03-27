@@ -29,16 +29,10 @@ module.exports = function (app) {
   });
 
 
-  app.get('/customer', (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/customer.html"))
-  );
+  app.get('/customer', (req, res) => res.render('customer'));
 
-  app.get('/job', (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/job.html"))
-  );
+  app.get('/job', (req, res) => res.render('job'));
 
-  app.get('/profile', (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/profile.html"))
-  );
+  app.get('/profile', (req, res) => res.render('profile'));
 
 };

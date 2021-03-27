@@ -2,26 +2,31 @@ const express = require('express');
 
 const customerRouter = express.Router();
 
+exports.view = (req, res) => {
+  res.render('customer');
+}
+
+
 // Import the model (customer.js) to use its database functions.
-const customer = require('../models/customer.js');
+// const customer = require('../models/customer.js');
 
-// Create all our routes and set up logic within those routes where required.
-customerRouter.get('/', (req, res) => {
-  customer.all((data) => {
-    const hbsObject = {
-      customers: data,
-    };
-    console.log(hbsObject);
-    res.render('customer', hbsObject);
-  });
-});
+// // Create all our routes and set up logic within those routes where required.
+// customerRouter.get('/', (req, res) => {
+//   customer.all((data) => {
+//     const hbsObject = {
+//       customers: data,
+//     };
+//     console.log(hbsObject);
+//     res.render('customer', hbsObject);
+//   });
+// });
 
-customerRouter.post('/api/customers', (req, res) => {
-  customer.create(['residentialCommercial','firstName', 'lastName', 'positionDepartment', 'companyName', 'phoneNumber', 'streetAddress', 'streetAddressL2', 'city', 'state', ' zipCode', 'email', 'startDate', 'endDate'], [req.body.residentialCommercial, req.body.firstName, req.body.lastName, req.body.positionDepartment, req.body.companyName, req.body.phoneNumber, req.body.streetAddress, req.body.streetAddressL2, req.body.city, req.body.state, req.body.zipCode, req.body.email, req.body.startDate, req.body.endDate], (result) => {
-    // Send back the burger name of the new quote
-    res.json({ id: result.insertId });
-  });
-});
+// customerRouter.post('/api/customers', (req, res) => {
+//   customer.create(['residentialCommercial','firstName', 'lastName', 'positionDepartment', 'companyName', 'phoneNumber', 'streetAddress', 'streetAddressL2', 'city', 'state', ' zipCode', 'email', 'startDate', 'endDate'], [req.body.residentialCommercial, req.body.firstName, req.body.lastName, req.body.positionDepartment, req.body.companyName, req.body.phoneNumber, req.body.streetAddress, req.body.streetAddressL2, req.body.city, req.body.state, req.body.zipCode, req.body.email, req.body.startDate, req.body.endDate], (result) => {
+//     // Send back the burger name of the new quote
+//     res.json({ id: result.insertId });
+//   });
+// });
 
 // router.put('/api/customers/:id', (req, res) => {
 //   const condition = `id = ${req.params.id}`;
