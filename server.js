@@ -7,7 +7,7 @@ var passport = require("./config/passport");
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 
-require('dotenv').config();
+
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
@@ -39,9 +39,21 @@ require("./routes/api-routes.js")(app);
 // Import routes and give the server access to them.
 // const customerRoutes = require('./controllers/customer_controller.js');
 // app.use(customerRoutes);
-
-
 //need to create some for the login and others
+
+const Sequelize = require('sequelize');
+require('dotenv').config();
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    host: 'localhost',
+    dialect: 'mysql',
+    port: 3306,
+  }
+);
+module.exports = sequelize;
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function () {
