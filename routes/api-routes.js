@@ -87,7 +87,41 @@ module.exports = function (app) {
       residentialCommercial: req.body.residentialCommercial
     }).then((dbCustomer) => res.render(dbCustomer));
   });
-};
 
+
+
+  app.post('/api/jobtypes', (req, res) => {
+    console.log(req.body);
+    db.JobType.create({
+      jobStreetAddress: req.body.jobStreetAddressInput,
+      jobStreetAddressL2: req.body.jobStreetAddressL2Input,
+      JobCity: req.body.jobCityInput,
+      jobState: req.body.jobStateInput,
+      jobZipCode: req.body.jobZipCodeInput,
+      startDate: req.body.startDateInput,
+      phase: req.body.phaseInput,
+      typeOfWork: req.body.typeOfWorkInput,
+      sourceOfWork: req.body.sourceOfWorkInput,
+      status: req.body.statusInput
+    }).then((dbJobType) => res.json(dbJobType));
+  });
+
+
+  app.get('/api/jobtypes', (req, res) => {
+    console.log(req.body);
+    db.JobType.create({
+      jobStreetAddress: req.body.jobStreetAddressInput,
+      jobStreetAddressL2: req.body.jobStreetAddressL2Input,
+      jobCity: req.body.jobCityInput,
+      jobState: req.body.jobStateInput,
+      jobZipCode: req.body.jobZipCodeInput,
+      startDate: req.body.startDateInput,
+      phase: req.body.phaseInput,
+      typeOfWork: req.body.typeOfWorkInput,
+      sourceOfWork: req.body.sourceOfWorkInput,
+      status: req.body.statusInput
+    }).then((dbJobType) => res.json(dbJobType));
+  });
+};
 // search route get customers with filter
 

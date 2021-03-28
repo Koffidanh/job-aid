@@ -10,30 +10,30 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <form id="customer-form">
+            <form id="job-form">
                 <div class="container">
                     <h1>Job Form</h1>
                     <p>Please fill out the following job details</p>
                     <div class="col-md-6" style="float:left">
 
-                        <label for="startDate"><b>Start Date &nbsp; </b></label>
-                        <input type='text' class="form-control" data-provide="datepicker" placeholder='Select Date'
-                            style='width: 300px;'>
+                        <label for="startDate"><b>Start Date </b></label>
+                        <input type='text' id="startDate" class="form-control" data-provide="datepicker"
+                            placeholder='Select Date' style='width: 300px;' autocomplete="off">
                         <br>
                         <label for="streetAddress"><b>Street Address</b></label>
-                        <input type="text" name="streetAddress" class="form-control" id="streetAddress">
+                        <input type="text" name="jobStreetAddress" class="form-control" id="jobStreetAddress">
 
                         <label for="streetAddressL2"><b>Street Address Line 2</b></label>
-                        <input type="text" name="streetAddressL2" class="form-control" id="streetAddressL2">
+                        <input type="text" name="jobStreetAddressL2" class="form-control" id="jobStreetAddressL2">
 
                         <label for="city"><b>City</b></label>
-                        <input type="text" name="city" class="form-control" id="jobCity">
+                        <input type="text" name="jobCity" class="form-control" id="jobCity">
 
                         <label for="state"><b>State</b></label>
-                        <input type="text" name="state" class="form-control" id="jobState">
+                        <input type="text" name="jobState" class="form-control" id="jobState">
 
                         <label for="zipCode"><b>Zip Code</b></label>
-                        <input type="text" name="zipCode" class="form-control" id="zipCode">
+                        <input type="text" name="jobZipCode" class="form-control" id="jobZipCode">
                     </div>
                     <div class="jobDetails">
                         <div class="col-md-6" style="float:right">
@@ -58,18 +58,16 @@
                                 <option value="repair">Repair</option>
                             </select>
                             <br>
-                            <label for="typeOfWork"><b>Source of Work:</b></label>
-                            <select id="typeOfWork" name="typeOfWork">
+                            <label for="sourceOfWork"><b>Source of Work:</b></label>
+                            <select id="sourceOfWork" name="sourceOfWork">
                                 <option value="retrofit">Internet</option>
                                 <option value="newconstruction">Referral</option>
                                 <option value="repair">Other</option>
                             </select>
                         </div>
                         <hr>
-                        <a><button type="submit" class="registerbtn">Create
-                                Job</button></a </section>
-
-
+                        <button type="submit" class="registerbtn">Create
+                            Job</button>
                     </div>
             </form>
             <a href="/customer"><button type="button" class="backButton">Back</button></a>
@@ -83,5 +81,5 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-{{!--
-<script src="/static/js/jobForm.js" type="text/javascript"></script> --}}
+
+<script src="/static/js/jobForm.js" type="text/javascript"></script>

@@ -1,43 +1,59 @@
 module.exports = (sequelize, DataTypes) => {
     const JobType = sequelize.define('JobType', {
+        startDate: {
+            type: DataTypes.DATE,
+        },
+        status: {
+            type: DataTypes.STRING,
+        },
+        sourceOfWork: {
+            type: DataTypes.STRING,
+        },
+        typeOfWork: {
+            type: DataTypes.STRING,
+        },
+        phase: {
+            type: DataTypes.STRING,
+        },
 
-        retroFit: {
-            type: DataTypes.BOOLEAN,
-        },
-        newConstruction: {
-            type: DataTypes.BOOLEAN,
-        },
-        repairWork: {
-            type: DataTypes.BOOLEAN,
-        },
-        originatedAsSvcCall: {
-            type: DataTypes.BOOLEAN,
-        },
-        marketingOriginationInternet: {
-            type: DataTypes.BOOLEAN,
-        },
-        marketingOriginationReferral: {
-            type: DataTypes.BOOLEAN,
-        },
-        notes: {
+        jobStreetAddress: {
             type: DataTypes.STRING,
         },
-        JobStreetAddress: {
+        jobStreetAddressL2: {
             type: DataTypes.STRING,
         },
-        JobStreetAddressL2: {
+        jobCity: {
             type: DataTypes.STRING,
         },
-        JobCity: {
+        jobState: {
             type: DataTypes.STRING,
         },
-        JobState: {
-            type: DataTypes.STRING,
-        },
-        JobZipCode: {
+        jobZipCode: {
             type: DataTypes.INTEGER,
         },
     });
 
     return JobType;
 };
+
+
+// retroFit: {
+//     type: DataTypes.BOOLEAN,
+//         },
+// newConstruction: {
+//     type: DataTypes.BOOLEAN,
+//         },
+// repairWork: {
+//     type: DataTypes.BOOLEAN,
+//         },
+// originatedAsSvcCall: {
+//     type: DataTypes.BOOLEAN,
+//         },
+// marketingOriginationInternet: {
+//     type: DataTypes.BOOLEAN,
+//         },
+// marketingOriginationReferral: {
+//     type: DataTypes.BOOLEAN,
+//         },
+// notes: {
+//     type: DataTypes.STRING
