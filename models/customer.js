@@ -45,12 +45,6 @@ module.exports = (sequelize, DataTypes) => {
         email: {
             type: DataTypes.STRING,
         },
-        startDate: {
-            type: DataTypes.DATE,
-        },
-        endDate: {
-            type: DataTypes.DATE,
-        },
         // phase: {
         //     type: DataTypes.BOOLEAN,
         // },

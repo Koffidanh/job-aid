@@ -13,13 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const stateInput = document.getElementById('state');
   const zipCodeInput = document.getElementById('zipCode');
   const emailInput = document.getElementById('email');
-  const startDateInput = document.getElementById('startDate');
-  const endDateInput = document.getElementById('endDate');
+//  const startDateInput = document.getElementById('startDate');
+//  const endDateInput = document.getElementById('endDate');
   const residentialCommercialInput = document.getElementById('residentialCommercial');
   const customerList = document.querySelector('tbody');
 
-
-  // Insert customer to database
   const insertCustomer = (customerData) => {
     fetch('/api/customers', {
       method: 'POST',
@@ -28,21 +26,23 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       body: JSON.stringify(customerData),
     })
-      // .then(getCustomers)
+      .then(function () {
+      window.location.replace("/job");
+      })
       .catch((err) => console.error(err));
   };
+
 
   // Handle when the customer form is submitted
   const handleCustomerFormSubmit = (e) => {
     e.preventDefault();
 
     if (!firstNameInput.value.trim() || !lastNameInput.value.trim()) {
-      alert('Please provide an customer firstName and LastName');
+      alert('Please provide customer first and last name');
       return;
     }
 
     insertCustomer({
-
       firstName: firstNameInput.value.trim(),
       lastName: lastNameInput.value.trim(),
       companyName: companyNameInput.value.trim(),
@@ -54,14 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
       state: stateInput.value.trim(),
       zipCode: zipCodeInput.value.trim(),
       email: emailInput.value.trim(),
-      startDate: startDateInput.value.trim(),
-      endDate: endDateInput.value.trim(),
+     // startDate: startDateInput.value.trim(),
+     // endDate: endDateInput.value.trim(),
       residentialCommercial: residentialCommercialInput.value.trim(),
       // phase: phaseInput.value.trim(),
       // class: classInput.value.trim(),
       // complete: completeInput.value.trim(),
     });
-  };
+    };
+  // Insert customer to database
+
 
   document
     .getElementById('customer-form')
@@ -92,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!searchInput.value.trim()) {
       alert('Please provide a search input');
       return;
-    }
+    } 
 
     findCustomer({
 
@@ -224,26 +226,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // getCustomers();
 })
 
-// function pageLoad() {
-//   $("#newCustomerForm").hide();
-//   $("#existingCustomerForm").hide();
-//   $("#searchResults").hide();
-// }
-// pageLoad()
-// $('#newCustomer').click(function () {
-//   if ($('#newCustomer').is(':checked')) {
-//     $("#newCustomerForm").show();
-//     $("#existingCustomerForm").hide();
-//     $("#searchResults").hide();
-//   }
-// });
-// $('#existingCustomer').click(function () {
-//   if ($('#existingCustomer').is(':checked')) {
-//     $("#newCustomerForm").hide();
-//     $("#existingCustomerForm").show();
-//     $("#searchResults").show();
-//   }
-// });
+ function pageLoad() {
+   $("#newCustomerForm").hide();
+   $("#existingCustomerForm").hide();
+   $("#searchResults").hide();
+ }
+ pageLoad()
+ $('#newCustomer').click(function () {
+   if ($('#newCustomer').is(':checked')) {
+     $("#newCustomerForm").show();
+     $("#existingCustomerForm").hide();
+     $("#searchResults").hide();
+   }
+ });
+ $('#existingCustomer').click(function () {
+   if ($('#existingCustomer').is(':checked')) {
+     $("#newCustomerForm").hide();
+     $("#existingCustomerForm").show();
+     $("#searchResults").show();
+   }
+ });
 // $(document).ready(function () {
 //   $('#datepicker').datepicker();
 // });
