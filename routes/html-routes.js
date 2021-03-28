@@ -39,6 +39,8 @@ module.exports = function (app) {
 
   app.get('/job', (req, res) => res.render('job'));
 
+  app.get('/job-form', (req, res) => res.render('jobForm'));
+
   app.get('/profile/:id?', async (req, res) => {
     console.log(req.params)
     const id = Number.parseInt(req.params.id, 10)

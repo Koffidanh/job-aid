@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const JobType = sequelize.define('JobType', {
-        
+
         retroFit: {
             type: DataTypes.BOOLEAN,
         },
@@ -22,7 +22,22 @@ module.exports = (sequelize, DataTypes) => {
         notes: {
             type: DataTypes.STRING,
         },
+        JobStreetAddress: {
+            type: DataTypes.STRING,
+        },
+        JobStreetAddressL2: {
+            type: DataTypes.STRING,
+        },
+        JobCity: {
+            type: DataTypes.STRING,
+        },
+        JobState: {
+            type: DataTypes.STRING,
+        },
+        JobZipCode: {
+            type: DataTypes.INTEGER,
+        },
     });
-   
+
     return JobType;
 };
