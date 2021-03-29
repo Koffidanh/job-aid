@@ -55,13 +55,13 @@ module.exports = (sequelize, DataTypes) => {
         //     type: DataTypes.BOOLEAN,
         // },
     });
-    Customer.associate = (models) => {
-        //Adding a foreign key to customer
-        Customer.hasMany(models.JobType, {
-            foreignKey: {
-                allowNull: false,
-            },
-        });
-    };
+    // Customer.associate = (models) => {
+    //     //Adding a foreign key to customer
+    //     Customer.hasMany(models.JobType, {
+    //         foreignKey: {
+    //             allowNull: true,
+    //         },
+    //     });
+    // };
     return Customer;
 };

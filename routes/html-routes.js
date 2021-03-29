@@ -51,4 +51,26 @@ module.exports = function (app) {
 
 
   })
+
+  // app.get('/job/:id?', async (req, res) => {
+  //   console.log(req.params)
+  //   const id = Number.parseInt(req.params.id, 10)
+  //   console.log(id)
+  //   const customer = await db.Customer.findByPk(id)
+  //   console.log(customer)
+  //   res.render('profile', { customer: customer.get({ plain: true }) });
+
+
+  // })
+
+  // app.get('/job/:id?', async (req, res) => {
+  //   console.log(req.params)
+  //   const id = Number.parseInt(req.params.id, 10)
+  //   console.log(id)
+  //   const jobDetails = await db.JobType.findByPk(id)
+  //   console.log(jobDetails)
+  //   res.render('profile', { JobType: jobDetails.get({ plain: true }) });
+
+
+  // })
 };
