@@ -17,7 +17,7 @@
   
   ## Installation
   
-  This program is a node.js application with a user friendly interface allowing for easy storage and recollection of data.<br> Please run ```$ npm I ```<br> to install all dependencies necessary <br> a .env file must be created and filled using this syntax ``` DEV_MYSQL=mysql://root:password@localhost:3306/job_aid_db ``` -note that password must be replaced with the password for the MySQL workbench on the local server.
+  This program is a node.js application with a user friendly interface allowing for easy storage and recollection of data.<br> Please run ```$ npm I ``` to install all dependencies necessary <br> an .env file must be created and filled using this syntax ``` DEV_MYSQL=mysql://root:password@localhost:3306/job_aid_db ``` -note that password must be replaced with the password for the MySQL workbench on the local server.
   
   
   ## Usage 
@@ -27,7 +27,7 @@
   
   ## Credits
   
-  This project was created using:<br>Express Handlebars <br>MySQL <br>VS Code <br>bcryptjs <br>Bootstrap <br>JQuery 
+  This project was created using the following technologies:<br>Express Handlebars <br>MySQL <br>VS Code <br>bcryptjs <br>Bootstrap <br>JQuery 
   
   
   ## License
