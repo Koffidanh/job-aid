@@ -14,17 +14,18 @@
       <h1>Job Details</h1>
       <div class="container">
         <hr>
-        <p><b>Company Name: {{customer.companyName }}<br>
+        <p><b>
+            {{!-- Company Name: {{customer.companyName }}<br>
             Name: {{customer.firstName }} &nbsp;{{customer.lastName}}<br>
             Position/Dept: {{customer.positionDepartment}}<br>
             Start Date: {{job.startDate}}<br>
             Phone Number: {{customer.phoneNumber}}<br>
-            Email: {{customer.email}}<br>
-            Street Address: {{job.JobStreetAddress}}<br>
-            Street Address Line 2: {{job.JobStreetAddress}}<br>
-            City: {{job.JobCity}}<br>
-            State: {{job.JobState}}<br>
-            Zip Code: {{job.JobZipCode}}<br>
+            Email: {{customer.email}}<br> --}}
+            Street Address: {{JobType.jobStreetAddress}}<br>
+            Street Address Line 2: {{JobType.jobStreetAddress}}<br>
+            City: {{JobType.jobCity}}<br>
+            State: {{JobType.jobState}}<br>
+            Zip Code: {{JobType.jobZipCode}}<br>
             <br>
           </b></p>
         <br>
@@ -46,13 +47,14 @@
     <div class="jobDetails">
       <div class="col-md-6">
         <br><br><br><br>
-        <label for="phase"><b>Phase:</b></label>{{job.phase}}
+        <label for="phase"><b>Phase:</b></label>{{JobType.phase}}
         <br>
 
-        <label for="typeOfWork"><b>Type Of Work:</b></label>{{job.JobState}}
+        <label for="typeOfWork"><b>Type Of Work:</b></label>{{JobType.typeOfWork}}
         <br>
-        <label for="typeOfWork"><b>Source of Work:</b></label>{{job.JobState}}
-        <label for="status"><b>Status:</b></label>{{job.JobState}}
+        <label for="typeOfWork"><b>Source of Work:</b></label>{{JobType.sourceOfWork}}
+        <br>
+        <label for="status"><b>Status:</b></label>{{JobType.status}}
         <br>
         <select id="status" name="status">
           <option value="Active">Active</option>
