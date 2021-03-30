@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
 
-  const searchInput = document.getElementById('existingCustomer');
+  // const searchInput = document.getElementById('existingCustomer');
   const firstNameInput = document.getElementById('firstName');
   const lastNameInput = document.getElementById('lastName');
   const companyNameInput = document.getElementById('companyName');
@@ -73,132 +73,133 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // Find customer
-  const findCustomer = (customerData) => {
-    fetch('/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-      .then((response) => response.json())
-      .catch((err) => console.error(err));
-  };
+  // // Find customer
+  // const findCustomer = (customerData) => {
+  //   fetch('/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     }
+  //   })
+  //     .then((response) => response.json())
+  //     .catch((err) => console.error(err));
+  // };
 
 
 
-  // Search function
-  const handleCustomerSearch = (e) => {
-    e.preventDefault();
+  // // Search function
+  // const handleCustomerSearch = (e) => {
+  //   e.preventDefault();
 
-    if (!searchInput.value.trim()) {
-      alert('Please provide a search input');
-      return;
-    }
+  //   if (!searchInput.value.trim()) {
+  //     alert('Please provide a search input');
+  //     return;
+  //   }
 
-    findCustomer({
+  //   findCustomer({
 
-      firstName: firstNameInput.value.trim(),
-      lastName: lastNameInput.value.trim(),
-      // companyName: companyNameInput.value.trim(),
-      // positionDepartment: positionDepartmentInput.value.trim(),
-      // streetAddress: streetAddressInput.value.trim(),
-      // streetAddressL2: streetAddressL2Input.value.trim(),
-      phoneNumber: phoneNumberInput.value.trim(),
-      // city: cityInput.value.trim(),
-      // state: stateInput.value.trim(),
-      // zipCode: zipCodeInput.value.trim(),
-      // email: emailInput.value.trim(),
-      // startDate: startDateInput.value.trim(),
-      // endDate: endDateInput.value.trim(),
-      // residentialCommercial: residentialCommercialInput.value.trim(),
-      // phase: phaseInput.value.trim(),
-      // class: classInput.value.trim(),
-      // complete: completeInput.value.trim(),
-    });
-  };
+  //     firstName: firstNameInput.value.trim(),
+  //     lastName: lastNameInput.value.trim(),
+  //     // companyName: companyNameInput.value.trim(),
+  //     // positionDepartment: positionDepartmentInput.value.trim(),
+  //     // streetAddress: streetAddressInput.value.trim(),
+  //     // streetAddressL2: streetAddressL2Input.value.trim(),
+  //     phoneNumber: phoneNumberInput.value.trim(),
+  //     // city: cityInput.value.trim(),
+  //     // state: stateInput.value.trim(),
+  //     // zipCode: zipCodeInput.value.trim(),
+  //     // email: emailInput.value.trim(),
+  //     // startDate: startDateInput.value.trim(),
+  //     // endDate: endDateInput.value.trim(),
+  //     // residentialCommercial: residentialCommercialInput.value.trim(),
+  //     // phase: phaseInput.value.trim(),
+  //     // class: classInput.value.trim(),
+  //     // complete: completeInput.value.trim(),
+  //   });
+  // };
 
-  document
-    .getElementById('searchCustomer')
-    .addEventListener('submit', handleCustomerSearch);
-
-
+  // document
+  //   .getElementById('searchCustomer')
+  //   .addEventListener('submit', handleCustomerSearch);
 
 
-  // Event handler for the delete customer button
-  const handleDeleteButtonPress = (e) => {
-    const { id } = e.target.parentElement.parentElement;
-    fetch(`/api/customers/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(getCustomers);
-  };
 
-  // Create list row for customer
-  const createCustomerRow = (CustomerData) => {
-    const tr = document.createElement('tr');
-    tr.setAttribute('data-customer', JSON.stringify(customerData));
 
-    // Set each customer's ID on the element itself
-    tr.id = customerData.id;
+  // // Event handler for the delete customer button
+  // const handleDeleteButtonPress = (e) => {
+  //   const { id } = e.target.parentElement.parentElement;
+  //   fetch(`/api/customers/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   }).then(getCustomers);
+  // };
 
-    const td = document.createElement('td');
-    td.textContent = customerData.name;
-    tr.appendChild(td);
+  // // Create list row for customer
+  // const createCustomerRow = (CustomerData) => {
+  //   const tr = document.createElement('tr');
+  //   tr.setAttribute('data-customer', JSON.stringify(customerData));
 
-    // Element to show how many posts
-    const lengthTd = document.createElement('td');
-    if (customerData.Posts) {
-      lengthTd.textContent = customerData.Posts.length;
-    } else {
-      lengthTd.textContent = '0';
-    }
-    tr.appendChild(lengthTd);
+  //   // Set each customer's ID on the element itself
+  //   tr.id = customerData.id;
 
-    // "Go to posts" link REVIEW HREF BLOG customer 
-    const postsLink = document.createElement('td');
-    postsLink.innerHTML = `<td><a href='/?customer_id=${customerData.id}'>Go to Posts</a></td>`;
-    tr.appendChild(postsLink);
+  //   const td = document.createElement('td');
+  //   td.textContent = customerData.name;
+  //   tr.appendChild(td);
 
-    // "Create a post" link
-    const createLink = document.createElement('td');
-    createLink.innerHTML = `<td><a href='/cms?customer_id=${customerData.id}'>Create a Post</a></td>`;
-    tr.appendChild(createLink);
+  //   // Element to show how many posts
+  //   const lengthTd = document.createElement('td');
+  //   if (customerData.Posts) {
+  //     lengthTd.textContent = customerData.Posts.length;
+  //   } else {
+  //     lengthTd.textContent = '0';
+  //   }
+  //   tr.appendChild(lengthTd);
 
-    // "Delete author" link
-    const deleteLink = document.createElement('td');
-    deleteLink.innerHTML = `<td><a style='cursor:pointer;color:red' class='delete-customer'>Delete customer</a></td>`;
-    deleteLink.addEventListener('click', handleDeleteButtonPress);
-    tr.appendChild(deleteLink);
+  //   // "Go to posts" link REVIEW HREF BLOG customer 
+  //   const postsLink = document.createElement('td');
+  //   postsLink.innerHTML = `<td><a href='/?customer_id=${customerData.id}'>Go to Posts</a></td>`;
+  //   tr.appendChild(postsLink);
 
-    // Return the table row
-    return tr;
-  };
+  //   // "Create a post" link
+  //   const createLink = document.createElement('td');
+  //   createLink.innerHTML = `<td><a href='/cms?customer_id=${customerData.id}'>Create a Post</a></td>`;
+  //   tr.appendChild(createLink);
 
-  // Helper function to render content when there are no authors
-  const renderEmpty = () => {
-    const alertDiv = document.createElement('div');
-    alertDiv.classList.add('alert', 'alert-danger');
-    alertDiv.textContent = 'Must have at least one customer to post';
-    alertDiv.id = 'removeMe';
-    alertDiv.style.marginRight = '5px';
-    return alertDiv;
-  };
+  //   // "Delete author" link
+  //   const deleteLink = document.createElement('td');
+  //   deleteLink.innerHTML = `<td><a style='cursor:pointer;color:red' class='delete-customer'>Delete customer</a></td>`;
+  //   deleteLink.addEventListener('click', handleDeleteButtonPress);
+  //   tr.appendChild(deleteLink);
 
-  const renderCustomerList = (rows) => {
-    customerList.innerHTML = '';
+  //   // Return the table row
+  //   return tr;
+  // };
 
-    if (rows.length) {
-      if (document.getElementById('removeMe')) {
-        document.getElementById('removeMe').remove();
-      }
-      rows.forEach((row) => customerList.append(row));
-    } else {
-      document.querySelector('.customer-container').appendChild(renderEmpty());
-    }
-  };
+  // // Helper function to render content when there are no authors
+  // const renderEmpty = () => {
+  //   const alertDiv = document.createElement('div');
+  //   alertDiv.classList.add('alert', 'alert-danger');
+  //   alertDiv.textContent = 'Must have at least one customer to post';
+  //   alertDiv.id = 'removeMe';
+  //   alertDiv.style.marginRight = '5px';
+  //   return alertDiv;
+  // };
+
+  // const renderCustomerList = (rows) => {
+  //   customerList.innerHTML = '';
+
+  //   if (rows.length) {
+  //     if (document.getElementById('removeMe')) {
+  //       document.getElementById('removeMe').remove();
+  //     }
+  //     rows.forEach((row) => customerList.append(row));
+  //   } else {
+  //     document.querySelector('.customer-container').appendChild(renderEmpty());
+  //   }
+  // };
+
 
   // Grab all the authors
   // const getCustomers = () => {
