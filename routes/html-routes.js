@@ -28,9 +28,9 @@ module.exports = function (app) {
     res.render('customer');
   });
   //
-  app.get("/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber", function (req, res) {
-    res.render('customer');
-  });
+  // app.get("/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber", function (req, res) {
+  //   res.render('customer');
+  // });
 
   app.get('/signup', (req, res) => res.render('signup'));
   app.get('/login', (req, res) => res.render('login'));
@@ -44,7 +44,7 @@ module.exports = function (app) {
 
 
 
-  app.get('/profile/:id?', async (req, res) => {
+  app.get('/profile/:id?', isAuthenticated, async (req, res) => {
     console.log(req.params)
     const id = Number.parseInt(req.params.id, 10)
     console.log(id)
@@ -82,6 +82,15 @@ module.exports = function (app) {
 
 
   })
+
+
+  //   app.get('/search:firstName'), (req, res) =>
+  //     db.Customers.findAll({
+  //       where: {
+  //         firstName: req.params.search
+  //       }
+  //     }).then(data => res.render('viewAll', { customer: data }))
+
 };
 
 
@@ -93,9 +102,3 @@ module.exports = function (app) {
 //   const customer = await db.Customer.findAll()
 //   console.log(customer)
 //   res.render('viewAll', { customer: customer.get({ plain: true }) });
-
-// app.get('/search:firstName'), (req, res) =>
-//   db.Customers.findAll({
-//     where:
-//       lastName: req.params.search
-//   }).then(date => res.render('viewAll', { customer: data }))
