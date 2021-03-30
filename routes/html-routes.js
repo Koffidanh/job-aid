@@ -37,9 +37,12 @@ module.exports = function (app) {
   app.get('/customer', (req, res) => res.render('customer'));
   //app.get('/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber', (req, res) => res.render('profile'));
 
-  app.get('/job', (req, res) => res.render('job'));
+  // app.get('/job', (req, res) => res.render('job'));
+
 
   app.get('/job-form', (req, res) => res.render('jobForm'));
+
+
 
   app.get('/profile/:id?', async (req, res) => {
     console.log(req.params)
@@ -48,11 +51,17 @@ module.exports = function (app) {
     const customer = await db.Customer.findByPk(id)
     console.log(customer)
     res.render('profile', { customer: customer.get({ plain: true }) });
+  })
 
+
+  app.get('/viewAll', async (req, res) => {
+    const allCustomers = await db.Customer.findAll()
+    console.log(allCustomers)
+    res.render('viewAll', { customer: allCustomers });
 
   })
 
-  // app.get('/job/:id?', async (req, res) => {
+  // app.get('/jobs/:id?', async (req, res) => {
   //   console.log(req.params)
   //   const id = Number.parseInt(req.params.id, 10)
   //   console.log(id)
@@ -63,14 +72,30 @@ module.exports = function (app) {
 
   // })
 
-  // app.get('/job/:id?', async (req, res) => {
-  //   console.log(req.params)
-  //   const id = Number.parseInt(req.params.id, 10)
-  //   console.log(id)
-  //   const jobDetails = await db.JobType.findByPk(id)
-  //   console.log(jobDetails)
-  //   res.render('profile', { JobType: jobDetails.get({ plain: true }) });
+  app.get('/jobs/:id?', async (req, res) => {
+    console.log(req.params)
+    const id = Number.parseInt(req.params.id, 10)
+    console.log(id)
+    const jobDetails = await db.JobType.findByPk(id)
+    console.log(jobDetails)
+    res.render('job', { JobType: jobDetails.get({ plain: true }) });
 
 
-  // })
+  })
 };
+
+
+
+// app.get('/viewAll', async (req, res) => {
+//   console.log(req.params)
+//   const str = Number.parseInt(req.params.id, 10)
+//   console.log(str)
+//   const customer = await db.Customer.findAll()
+//   console.log(customer)
+//   res.render('viewAll', { customer: customer.get({ plain: true }) });
+
+// app.get('/search:firstName'), (req, res) =>
+//   db.Customers.findAll({
+//     where:
+//       lastName: req.params.search
+//   }).then(date => res.render('viewAll', { customer: data }))

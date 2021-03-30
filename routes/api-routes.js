@@ -69,59 +69,95 @@ module.exports = function (app) {
   });
 
 
-  app.get('/api/customers', (req, res) => {
+  // app.get('/api/customers', (req, res) => {
+  //   console.log(req.body);
+  //   db.Customer.create({
+  //     firstName: req.body.firstName,
+  //     lastName: req.body.lastName,
+  //     companyName: req.body.companyName,
+  //     companyAddress: req.body.companyAddress,
+  //     phoneNumber: req.body.phoneNumber,
+  //     positionDepartment: req.body.positionDepartment,
+  //     streetAddress: req.body.streetAddress,
+  //     streetAddressL2: req.body.streetAddressL2,
+  //     city: req.body.city,
+  //     state: req.body.state,
+  //     zipCode: req.body.zipCode,
+  //     email: req.body.email,
+  //     residentialCommercial: req.body.residentialCommercial
+  //   }).then((dbCustomer) => res.render(dbCustomer));
+  // });
+
+
+
+  app.post('/api/jobs', (req, res) => {
     console.log(req.body);
-    db.Customer.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      companyName: req.body.companyName,
-      companyAddress: req.body.companyAddress,
-      phoneNumber: req.body.phoneNumber,
-      positionDepartment: req.body.positionDepartment,
-      streetAddress: req.body.streetAddress,
-      streetAddressL2: req.body.streetAddressL2,
-      city: req.body.city,
-      state: req.body.state,
-      zipCode: req.body.zipCode,
-      email: req.body.email,
-      residentialCommercial: req.body.residentialCommercial
-    }).then((dbCustomer) => res.render(dbCustomer));
+    db.JobType.create(req.body).then((dbJobType) => res.json(dbJobType));
   });
 
 
+  // app.get('/api/jobs', (req, res) => {
+  //   console.log(req.body);
+  //   db.JobType.create({
+  //     jobStreetAddress: req.body.jobStreetAddressInput,
+  //     jobStreetAddressL2: req.body.jobStreetAddressL2Input,
+  //     jobCity: req.body.jobCityInput,
+  //     jobState: req.body.jobStateInput,
+  //     jobZipCode: req.body.jobZipCodeInput,
+  //     startDate: req.body.startDateInput,
+  //     phase: req.body.phaseInput,
+  //     typeOfWork: req.body.typeOfWorkInput,
+  //     sourceOfWork: req.body.sourceOfWorkInput,
+  //     status: req.body.statusInput
+  //   }).then((dbJobType) => res.json(dbJobType));
+  // });
 
-  app.post('/api/jobtypes', (req, res) => {
-    console.log(req.body);
-    db.JobType.create({
-      jobStreetAddress: req.body.jobStreetAddressInput,
-      jobStreetAddressL2: req.body.jobStreetAddressL2Input,
-      JobCity: req.body.jobCityInput,
-      jobState: req.body.jobStateInput,
-      jobZipCode: req.body.jobZipCodeInput,
-      startDate: req.body.startDateInput,
-      phase: req.body.phaseInput,
-      typeOfWork: req.body.typeOfWorkInput,
-      sourceOfWork: req.body.sourceOfWorkInput,
-      status: req.body.statusInput
-    }).then((dbJobType) => res.json(dbJobType));
-  });
 
 
-  app.get('/api/jobtypes', (req, res) => {
-    console.log(req.body);
-    db.JobType.create({
-      jobStreetAddress: req.body.jobStreetAddressInput,
-      jobStreetAddressL2: req.body.jobStreetAddressL2Input,
-      jobCity: req.body.jobCityInput,
-      jobState: req.body.jobStateInput,
-      jobZipCode: req.body.jobZipCodeInput,
-      startDate: req.body.startDateInput,
-      phase: req.body.phaseInput,
-      typeOfWork: req.body.typeOfWorkInput,
-      sourceOfWork: req.body.sourceOfWorkInput,
-      status: req.body.statusInput
-    }).then((dbJobType) => res.json(dbJobType));
-  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // searchQuery1 = "Kayvon"
+
+  // const { Op } = require("sequelize");
+  // db.Customer.findAll({
+  //   where: {
+  //     firstName: {
+  //       [Op.like]: '%' + searchQuery1 + '%'
+  //     }
+  //   }
+  // });
+
+
+
+  // const users = await db.Customer.findAll();
+  // console.log(users.every(db.Customer => db.Customer instanceof Customer)); // true
+  // console.log("All users:", JSON.stringify(users, null, 2));
+
+
 };
+
+
 // search route get customers with filter
+
+      // $or:
+
+// Delete everyone named "Jane"
+// await User.destroy({
+//   where: {
+//     firstName: "Jane"
+//   }
+// });
 

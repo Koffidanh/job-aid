@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
         phase: {
             type: DataTypes.STRING,
         },
-
         jobStreetAddress: {
             type: DataTypes.STRING,
         },

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // const jobList = document.querySelector('tbody');
 
     const insertJob = (jobData) => {
-        fetch('/api/jobtypes', {
+        fetch('/api/jobs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
