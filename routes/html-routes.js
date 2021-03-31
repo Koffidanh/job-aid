@@ -28,50 +28,18 @@ module.exports = function (app) {
   app.get("/customer", isAuthenticated, function (req, res) {
     res.render('customer');
   });
-  //
-  // app.get("/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber", function (req, res) {
-  //   res.render('customer');
-  // });
-
   app.get('/signup', (req, res) => res.render('signup'));
   app.get('/login', (req, res) => res.render('login'));
-  app.get('/customer', (req, res) => res.render('customer'));
-  //app.get('/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber', (req, res) => res.render('profile'));
-
-  // app.get('/job', (req, res) => res.render('job'));
+  app.get('/job-form', isAuthenticated, (req, res) => res.render('jobForm'));
 
 
-  app.get('/job-form', (req, res) => res.render('jobForm'));
-
-
-
-  app.get('/profile/:id?', isAuthenticated, async (req, res) => {
-    console.log(req.params)
-    const id = Number.parseInt(req.params.id, 10)
-    console.log(id)
-    const customer = await db.Customer.findByPk(id)
-    console.log(customer)
-    res.render('profile', { customer: customer.get({ plain: true }) });
-  })
-
-
-  app.get('/viewAll', async (req, res) => {
+  app.get('/viewAll', isAuthenticated, async (req, res) => {
     const allCustomers = await db.Customer.findAll()
     console.log(allCustomers)
     res.render('viewAll', { customer: allCustomers });
 
   })
 
-  // app.get('/jobs/:id?', async (req, res) => {
-  //   console.log(req.params)
-  //   const id = Number.parseInt(req.params.id, 10)
-  //   console.log(id)
-  //   const customer = await db.Customer.findByPk(id)
-  //   console.log(customer)
-  //   res.render('profile', { customer: customer.get({ plain: true }) });
-
-
-  // })
   app.post('/search', (req, res) => {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
@@ -88,9 +56,10 @@ module.exports = function (app) {
           { phoneNumber: req.body.existingCustomer },
         ]
       },
-    }).then((dbCustomer) => res.render('viewAll', { customer: dbCustomer }))
+    }).then((dbCustomer) => res.render('viewOne', { customer: dbCustomer }))
   });
-  app.get('/jobs/:id?', async (req, res) => {
+
+  app.get('/jobs/:id?', isAuthenticated, async (req, res) => {
     console.log(req.params)
     const id = Number.parseInt(req.params.id, 10)
     console.log(id)
@@ -106,28 +75,16 @@ module.exports = function (app) {
     res.render('job', { JobType: jobDetails.get({ plain: true })
     }) 
     }
-  
+
   });
 
-
-  
-  
-
-  //   app.get('/search:firstName'), (req, res) =>
-  //     db.Customers.findAll({
-  //       where: {
-  //         firstName: req.params.search
-  //       }
-  //     }).then(data => res.render('viewAll', { customer: data }))
+  app.get('/profile/:id?', isAuthenticated, async (req, res) => {
+    console.log(req.params)
+    const id = Number.parseInt(req.params.id, 10)
+    console.log(id)
+    const customer = await db.Customer.findByPk(id)
+    console.log(customer)
+    res.render('profile', { customer: customer.get({ plain: true }) });
+  })
 
 };
-
-
-
-// app.get('/viewAll', async (req, res) => {
-//   console.log(req.params)
-//   const str = Number.parseInt(req.params.id, 10)
-//   console.log(str)
-//   const customer = await db.Customer.findAll()
-//   console.log(customer)
-//   res.render('viewAll', { customer: customer.get({ plain: true }) });
