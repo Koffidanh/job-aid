@@ -55,13 +55,13 @@ module.exports = (sequelize, DataTypes) => {
         //     type: DataTypes.BOOLEAN,
         // },
     });
-    // Customer.associate = (models) => {
-    //     //Adding a foreign key to customer
-    //     Customer.hasMany(models.JobType, {
-    //         foreignKey: {
-    //             allowNull: true,
-    //         },
-    //     });
-    // };
-    return Customer;
-};
+    Customer.associate = (models) => {
+        // Associating customer with jobTypes
+        // When a customer is deleted, also delete any associated Posts
+        Customer.hasMany(models.JobType, {
+          onDelete: 'cascade',
+        });
+      };
+    
+      return Customer;
+    };
