@@ -59,24 +59,33 @@ module.exports = function (app) {
     }).then((dbCustomer) => res.render('viewOne', { customer: dbCustomer }))
   });
 
+  // app.get('/jobs/:id?', isAuthenticated, async (req, res) => {
+  //   console.log(req.params)
+  //   const id = Number.parseInt(req.params.id, 10)
+  //   console.log(id)
+  //   const jobDetails = await db.JobType.findOne({
+  //     where: {
+  //     CustomerId: id
+  //     }
+  //   });
+  //   console.log(jobDetails)
+  //   if (jobDetails==false) {
+  //     alert('No jobs exist for customer');
+  //   } else {
+  //   res.render('job', { JobType: jobDetails.get({ plain: true })
+  //   }) 
+  //   }
+
+  // });
+
   app.get('/jobs/:id?', isAuthenticated, async (req, res) => {
     console.log(req.params)
     const id = Number.parseInt(req.params.id, 10)
     console.log(id)
-    const jobDetails = await db.JobType.findOne({
-      where: {
-      CustomerId: id
-      }
-    });
+    const jobDetails = await db.JobType.findByPk(id)
     console.log(jobDetails)
-    if (jobDetails==false) {
-      alert('No jobs exist for customer');
-    } else {
-    res.render('job', { JobType: jobDetails.get({ plain: true })
-    }) 
-    }
-
-  });
+    res.render('job', { JobType: jobDetails.get({ plain: true }) });
+  })
 
   app.get('/profile/:id?', isAuthenticated, async (req, res) => {
     console.log(req.params)
