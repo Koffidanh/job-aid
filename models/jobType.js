@@ -3,9 +3,9 @@ module.exports = (sequelize, DataTypes) => {
         startDate: {
             type: DataTypes.DATE,
         },
-        status: {
-            type: DataTypes.STRING,
-        },
+        // status: {
+        //     type: DataTypes.STRING,
+        // },
         sourceOfWork: {
             type: DataTypes.STRING,
         },
@@ -36,34 +36,11 @@ module.exports = (sequelize, DataTypes) => {
         // We're saying that a Post should belong to an Author
         // A Post can't be created without an Author due to the foreign key constraint
         JobType.belongsTo(models.Customer, {
-          foreignKey: {
-            allowNull: false,
-          },
+            foreignKey: {
+                allowNull: false,
+            },
         });
-      };
-    
-      return JobType;
     };
 
-
-
-// retroFit: {
-//     type: DataTypes.BOOLEAN,
-//         },
-// newConstruction: {
-//     type: DataTypes.BOOLEAN,
-//         },
-// repairWork: {
-//     type: DataTypes.BOOLEAN,
-//         },
-// originatedAsSvcCall: {
-//     type: DataTypes.BOOLEAN,
-//         },
-// marketingOriginationInternet: {
-//     type: DataTypes.BOOLEAN,
-//         },
-// marketingOriginationReferral: {
-//     type: DataTypes.BOOLEAN,
-//         },
-// notes: {
-//     type: DataTypes.STRING
+    return JobType;
+};

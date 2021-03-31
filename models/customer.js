@@ -1,11 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const Customer = sequelize.define('Customer', {
-        // newCustomer: {
-        //     type: DataTypes.BOOLEAN,
-        // },
-        // existingCustomer: {
-        //     type: DataTypes.BOOLEAN,
-        // },
         residentialCommercial: {
             type: DataTypes.STRING,
         },
@@ -19,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         positionDepartment: {
             type: DataTypes.STRING,
-
         },
         companyName: {
             type: DataTypes.STRING,
@@ -45,23 +38,14 @@ module.exports = (sequelize, DataTypes) => {
         email: {
             type: DataTypes.STRING,
         },
-        // phase: {
-        //     type: DataTypes.BOOLEAN,
-        // },
-        // class: {
-        //     type: DataTypes.BOOLEAN,
-        // },
-        // complete: {
-        //     type: DataTypes.BOOLEAN,
-        // },
     });
     Customer.associate = (models) => {
         // Associating customer with jobTypes
         // When a customer is deleted, also delete any associated Posts
         Customer.hasMany(models.JobType, {
-          onDelete: 'cascade',
+            onDelete: 'cascade',
         });
-      };
-    
-      return Customer;
     };
+
+    return Customer;
+};

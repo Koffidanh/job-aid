@@ -15,12 +15,6 @@
       <div class="container">
         <hr>
         <p><b>
-            {{!-- Company Name: {{customer.companyName }}<br>
-            Name: {{customer.firstName }} &nbsp;{{customer.lastName}}<br>
-            Position/Dept: {{customer.positionDepartment}}<br>
-            Start Date: {{job.startDate}}<br>
-            Phone Number: {{customer.phoneNumber}}<br>
-            Email: {{customer.email}}<br> --}}
             Street Address: {{JobType.jobStreetAddress}}<br>
             Street Address Line 2: {{JobType.jobStreetAddress}}<br>
             City: {{JobType.jobCity}}<br>
@@ -29,21 +23,15 @@
             <br>
           </b></p>
         <br>
-        <label for="notes"><b>Notes:</b></label>
+        {{!-- <label for="notes"><b>Notes:</b></label>
         <input type="text" name="notes" id="notes">
-        <br><br>
-        <a href="/customer"><button type="button" class="backButton">Back</button></a>
+        <br><br> --}}
+        <a href="/viewAll"><button type="button" class="backButton">Back</button></a>
         <button type="submit" class="submitChgButton">Submit Changes</button>
         <br><br>
         <hr>
-        <div class="history">
-          <tr>
-            <h1>Job History</h1>
-          </tr>
-        </div>
       </div>
     </div>
-    <br>
     <div class="jobDetails">
       <div class="col-md-6">
         <br><br><br><br>
@@ -53,24 +41,18 @@
         <label for="typeOfWork"><b>Type Of Work:</b></label>{{JobType.typeOfWork}}
         <br>
         <label for="typeOfWork"><b>Source of Work:</b></label>{{JobType.sourceOfWork}}
-        <br>
+        {{!-- <br>
         <label for="status"><b>Status:</b></label>{{JobType.status}}
-        <br>
-        <select id="status" name="status">
+        <br> --}}
+        {{!-- <select id="status" name="status">
           <option value="Active">Active</option>
           <option value="Cancelled">Cancelled</option>
           <option value="Completed">Completed</option>
-        </select>
+        </select> --}}
       </div>
     </div>
     </form>
   </div>
 </div>
 
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{{!--
-<script type="text/javascript" src="js/members.js"></script> --}}
-{{!--
-<script type="text/javascript" src="/static/js/jobType.js"></script> --}}
