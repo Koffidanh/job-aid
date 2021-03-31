@@ -31,8 +31,13 @@ app.set('view engine', 'handlebars');
 
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+
+
+// require("./routes/customer-api-routes.js")(app);
+
 require("./routes/html-routes.js")(app);
 require("./routes/customer-api-routes.js")(app);
+
 // require("./routes/job-api-routes.js")(app);
 
 

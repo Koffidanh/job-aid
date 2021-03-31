@@ -74,7 +74,7 @@
               Customer</button>
           </section>
       </form>
-      <form id="searchCustomer">
+      <form id="searchCustomer" action="/search" method="POST">
         <section id="existingCustomerForm">
           <br>
           <label for="firstName"><b>First Name|| Last Name || Address || Phone Number</b></label>
@@ -99,10 +99,9 @@
       <tr>
         <th>Name</th>
         <th>Phone Number</th>
-        <th></th>
+        <th>Address</th>
       </tr>
     </thead>
-    {{!-- {{#each customers}} --}}
     <tbody>
       <tr>
         <td class="tableCol" style="vertical-align: middle;"><a style="text-decoration: none">
@@ -115,8 +114,14 @@
           <a class="btn" href="/job">Delete</a>
         </td>
       </tr>
+      {{#each customers}}
+      <tr>
+        <td>{{firstName}} {{lastName}}</td>
+        <td>{{phoneNumber}}</td>
+        <td>{{streetAddress}}</td>
+      </tr>
+      {{/each}}
     </tbody>
-    {{!-- {{/each}} --}}
   </table>
 </section>
 </div>

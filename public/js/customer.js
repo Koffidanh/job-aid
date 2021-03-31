@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //  const endDateInput = document.getElementById('endDate');
   const residentialCommercialInput = document.getElementById('residentialCommercial');
   const customerList = document.querySelector('tbody');
+  const existingCustomer = document.getElementById('existingCustomer')
 
   const insertCustomer = (customerData) => {
     fetch('/api/customers', {
@@ -73,17 +74,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // // Find customer
-  // const findCustomer = (customerData) => {
-  //   fetch('/api/customer/:id:firstName:lastName:email:streetAddress:streetAddressL2:phoneNumber', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     }
-  //   })
-  //     .then((response) => response.json())
-  //     .catch((err) => console.error(err));
-  // };
+
+  // Find customer
+  const findCustomer = (customerData) => {
+    fetch('/api/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(customerData)
+    })
+      .then((response) => response.json())
+      .then(data => console.log(data))
+      .catch((err) => console.error(err));
+  };
+
+
+
+  // Search function
+  const handleCustomerSearch = (e) => {
+    e.preventDefault();
+
+    if (!searchInput.value.trim()) {
+      alert('Please provide a search input');
+      return;
+    }
+    console.log(existingCustomer.value)
+    findCustomer({
+      existingCustomer: existingCustomer.textContent
+    //   firstName: existingCustomer.value.trim(),
+    //   // lastName: lastNameInput.value.trim(),
+    //   // companyName: companyNameInput.value.trim(),
+    //   // positionDepartment: positionDepartmentInput.value.trim(),
+    //   // streetAddress: streetAddressInput.value.trim(),
+    //   // streetAddressL2: streetAddressL2Input.value.trim(),
+    //   // phoneNumber: phoneNumberInput.value.trim(),
+    //   // city: cityInput.value.trim(),
+    //   // state: stateInput.value.trim(),
+    //   // zipCode: zipCodeInput.value.trim(),
+    //   // email: emailInput.value.trim(),
+    //   // startDate: startDateInput.value.trim(),
+    //   // endDate: endDateInput.value.trim(),
+    //   // residentialCommercial: residentialCommercialInput.value.trim(),
+    //   // phase: phaseInput.value.trim(),
+    //   // class: classInput.value.trim(),
+    //   // complete: completeInput.value.trim(),
+    });
+  };
+
+  // document
+  //   .getElementById('searchCustomer')
+  //   .addEventListener('submit', handleCustomerSearch);
+
+
 
 
 

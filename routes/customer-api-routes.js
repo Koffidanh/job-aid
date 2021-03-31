@@ -11,9 +11,31 @@ module.exports = (app) => {
     //
 
 
+
+        }).then((dbMember) => res.json(dbMember));
+    });
+    //
+    // app.get('/api/customers', (req, res) => {
+    //     // Here we add an "include" property to our options in our findAll query
+    //     // We set the value to an array of the models we want to include in a left outer join
+    //     // In this case, just db.Post
+    //     db.Customer.findAll({
+    //         where: req.query,
+    //         include: [db.Post],
+    //     }).then((dbCustomer) => res.json(dbCustomer));
+    // });
+
+    app.post('/api/search', (req, res) => {
+        // Here we add an "include" property to our options in our findOne query
+        // We set the value to an array of the models we want to include in a left outer join
+        // In this case, just db.Post
+        console.log(req.body)
+        db.Customer.findAll({
+
     app.get('/api/customers'), (req, res) => {
         console.log("success")
         db.Customers.findAll({
+
             where: {
                 firstName: req.params.search
             }

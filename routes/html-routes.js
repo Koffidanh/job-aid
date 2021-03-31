@@ -3,6 +3,7 @@ var path = require("path");
 const db = require('../models');
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
+const { Op } = require('sequelize')
 
 module.exports = function (app) {
 
@@ -71,7 +72,24 @@ module.exports = function (app) {
 
 
   // })
-
+  app.post('/search', (req, res) => {
+    // Here we add an "include" property to our options in our findOne query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Post
+    console.log(req.body)
+    db.Customer.findAll({
+      where: {
+        [Op.or]: [
+          { firstName: req.body.existingCustomer },
+          { lastName: req.body.existingCustomer },
+          { email: req.body.existingCustomer },
+          { streetAddress: req.body.existingCustomer },
+          { streetAddressL2: req.body.existingCustomer },
+          { phoneNumber: req.body.existingCustomer },
+        ]
+      },
+    }).then((dbCustomer) => res.render('viewAll', { customer: dbCustomer }))
+  });
   app.get('/jobs/:id?', async (req, res) => {
     console.log(req.params)
     const id = Number.parseInt(req.params.id, 10)
