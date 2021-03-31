@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const emailInput = document.getElementById('email');
   const residentialCommercialInput = document.getElementById('residentialCommercial');
 
-
   const insertCustomer = (customerData) => {
     fetch('/api/customers', {
       method: 'POST',
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch((err) => console.error(err));
   };
-
 
   // Handle when the customer form is submitted
   const handleCustomerFormSubmit = (e) => {
@@ -82,5 +80,3 @@ $('#existingCustomer').click(function () {
 
   }
 });
-
-

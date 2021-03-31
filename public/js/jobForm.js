@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const typeOfWorkInput = document.getElementById('typeOfWork');
     const sourceOfWorkInput = document.getElementById('sourceOfWork');
 
-
     const insertJob = (jobData) => {
         fetch('/api/jobs', {
             method: 'POST',
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         insertJob({
-
             jobStreetAddress: jobStreetAddressInput.value.trim(),
             jobStreetAddressL2: jobStreetAddressL2Input.value.trim(),
             jobCity: jobCityInput.value.trim(),
@@ -54,15 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     };
 
-
     document
         .getElementById('job-form')
         .addEventListener('submit', handleJobFormSubmit);
 });
-
-
-
-
-
-
-
