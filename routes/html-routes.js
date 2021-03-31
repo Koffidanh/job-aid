@@ -68,6 +68,7 @@ module.exports = function (app) {
       CustomerId: id
       }
     });
+    console.log(jobDetails)
     if (jobDetails==false) {
       alert('No jobs exist for customer');
     } else {
