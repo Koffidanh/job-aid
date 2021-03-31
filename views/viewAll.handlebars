@@ -19,7 +19,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Phone Number</th>
-                        <th></th>
+                        <th>Address</th>
                     </tr>
                 </thead>
                 {{#each customer}}
@@ -27,7 +27,7 @@
                 <tbody>
                     <tr>
                         <td class="tableCol" style="vertical-align: middle;">
-                            {{firstName }}
+                            {{firstName}}
                             {{lastName}}
                             <a style="text-decoration: none">
                             </a>
@@ -35,11 +35,12 @@
                         <td class="tableCol" style="vertical-align: middle;">
                             {{phoneNumber}}
                         </td>
-                        <td class="tableCol" style="text-align:right;">
-                            <a class="btn" href="/job">View Jobs</a>
+                        <td>{{streetAddress}}</td>
+                       <td class="tableCol" style="text-align:right;">
+                            <a class="btn" href="/jobs/{{id}}">View Jobs</a>
                             <a class="btn" href="/job-form">Add Job</a>
-                            <a id="profileBtn" class="btn" href="/profile:id">View Profile</a>
-                            <a class="btn" href="/job">Delete</a>
+                            <a id="profileBtn" class="btn" href="/profile/{{id}}">View Profile</a>
+                            <a class="btn" id="deleteCustomer">Delete</a>
                         </td>
                     </tr>
                 </tbody>
