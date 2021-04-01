@@ -18,7 +18,7 @@ const handleDeleteButtonPress = async () => {
             'Content-Type': 'application/json',
         },
     }).then(function () {
-        window.location.replace("/viewAll");
+        window.location.replace("/customer");
     })
         .catch((err) => console.error(err));
 };
