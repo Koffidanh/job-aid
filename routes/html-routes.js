@@ -82,10 +82,19 @@ module.exports = function (app) {
     console.log(req.params)
     const id = Number.parseInt(req.params.id, 10)
     console.log(id)
-    const jobDetails = await db.JobType.findByPk(id)
-    console.log(jobDetails)
-    res.render('job', { JobType: jobDetails.get({ plain: true }) });
-  })
+    const jobDetails = await db.JobType.findOne({
+      where: {
+      CustomerId: id
+      }
+    });
+    if (jobDetails==null) {
+      alert('No jobs exist for customer');
+    } else {
+    res.render('job', { JobType: jobDetails.get({ plain: true })
+    }) 
+    }
+
+  });
 
   app.get('/profile/:id?', isAuthenticated, async (req, res) => {
     console.log(req.params)
