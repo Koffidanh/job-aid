@@ -56,7 +56,7 @@ module.exports = function (app) {
           { phoneNumber: req.body.existingCustomer },
         ]
       },
-    }).then((dbCustomer) => res.render('viewOne', { customer: dbCustomer }))
+    }).then((dbCustomer) => res.render('viewAll', { customer: dbCustomer }))
   });
 
   // app.get('/jobs/:id?', isAuthenticated, async (req, res) => {
@@ -65,15 +65,15 @@ module.exports = function (app) {
   //   console.log(id)
   //   const jobDetails = await db.JobType.findOne({
   //     where: {
-  //     CustomerId: id
+  //       CustomerId: id
   //     }
   //   });
-  //   console.log(jobDetails)
-  //   if (jobDetails==false) {
+  //   if (jobDetails == null) {
   //     alert('No jobs exist for customer');
   //   } else {
-  //   res.render('job', { JobType: jobDetails.get({ plain: true })
-  //   }) 
+  //     res.render('job', {
+  //       JobType: jobDetails.get({ plain: true })
+  //     })
   //   }
 
   // });
@@ -82,19 +82,10 @@ module.exports = function (app) {
     console.log(req.params)
     const id = Number.parseInt(req.params.id, 10)
     console.log(id)
-    const jobDetails = await db.JobType.findOne({
-      where: {
-      CustomerId: id
-      }
-    });
-    if (jobDetails==null) {
-      alert('No jobs exist for customer');
-    } else {
-    res.render('job', { JobType: jobDetails.get({ plain: true })
-    }) 
-    }
-
-  });
+    const jobDetails = await db.JobType.findByPk(id)
+    console.log(jobDetails)
+    res.render('job', { JobType: jobDetails.get({ plain: true }) });
+  })
 
   app.get('/profile/:id?', isAuthenticated, async (req, res) => {
     console.log(req.params)

@@ -1,28 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Success');
+// document.addEventListener('DOMContentLoaded', () => {
+//     console.log('Success');
 
 
-    const handleDeleteButtonPress = async () => {
 
-        // const tbody = document.getElementById("tbody")
-        const tableRow = document.querySelector('tbody');
+const handleDeleteButtonPress = async () => {
 
-        console.log(tableRow.getAttribute('id'))
-        const customerID = tableRow.getAttribute('id');
-        fetch(`/api/delete/${customerID}`, {
+    // const tbody = document.getElementById("tbody")
+    const tableRow = document.querySelector('tbody');
 
-            // fetch(`/api/delete/:id`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }).then(function () {
-            window.location.replace("/viewAll");
-        })
-            .catch((err) => console.error(err));
-    };
+    console.log(tableRow.getAttribute('id'))
+    const customerID = tableRow.getAttribute('id');
+    fetch(`/api/delete/${customerID}`, {
 
-    document.getElementById('deleteCustomer')
-        .addEventListener('click', handleDeleteButtonPress);
+        // fetch(`/api/delete/:id`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(function () {
+        window.location.replace("/viewAll");
+    })
+        .catch((err) => console.error(err));
+};
 
-});
+document.getElementsByClassName('deleteCustomer')
+    .addEventListener('click', handleDeleteButtonPress);
+
+// });
