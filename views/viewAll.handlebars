@@ -24,7 +24,7 @@
                 </thead>
                 {{#each customer}}
                 {{#dataValues}}
-                <tbody class="tableRow" id={{id}}>
+                <tbody class="tableRow">
                     <tr>
                         <td class="tableCol" style="vertical-align: middle;">
                             {{firstName}}
@@ -41,8 +41,9 @@
                             <a class="btn" href="/job-form">Add Job</a>
                             <a id="profileBtn" class="btn" href="/profile/{{id}}">View Profile</a>
 
-                            {{!-- <a class="btn" class="deleteCustomer" onclick="handleDeleteButtonPress()">Delete</a>
-                            --}}
+                            <a class="btn" id={{id}} class="deleteCustomer"
+                                onclick="handleDeleteButtonPress(this)">Delete</a>
+
 
                         </td>
                     </tr>
