@@ -56,7 +56,7 @@ module.exports = function (app) {
           { phoneNumber: req.body.existingCustomer },
         ]
       },
-    }).then((dbCustomer) => res.render('viewOne', { customer: dbCustomer }))
+    }).then((dbCustomer) => res.render('viewAll', { customer: dbCustomer }))
   });
 
   // app.get('/jobs/:id?', isAuthenticated, async (req, res) => {

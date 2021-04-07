@@ -1,15 +1,10 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     console.log('Success');
+
+function handleDeleteButtonPress(e) {
 
 
+    const customerID = e.getAttribute('id');
 
-const handleDeleteButtonPress = async () => {
-
-    // const tbody = document.getElementById("tbody")
-    const tableRow = document.querySelector('tbody');
-
-    console.log(tableRow.getAttribute('id'))
-    const customerID = tableRow.getAttribute('id');
+    console.log(customerID)
     fetch(`/api/delete/${customerID}`, {
 
         // fetch(`/api/delete/:id`, {
@@ -21,9 +16,5 @@ const handleDeleteButtonPress = async () => {
         window.location.replace("/customer");
     })
         .catch((err) => console.error(err));
+
 };
-
-document.getElementsByClassName('deleteCustomer')
-    .addEventListener('click', handleDeleteButtonPress);
-
-// });
