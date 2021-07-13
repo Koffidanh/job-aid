@@ -4,7 +4,7 @@
 
   ## Description
   
-  Job Aid is a simple user friendly CRM created to help small businesses manage customer information to better help them  retain customers and create marketing campaigns based off historical job acquisition. 
+  Job Aid is a simple user friendly CRM created to help small businesses manage customer information to better help them  retain customers and create marketing campaigns based off historical job acquisition. ![screenshot](https://raw.githubusercontent.com/Koffidanh/job-aid/main/Web%20capture_24-6-2021_0211_localhost.jpeg)
   
   
   ## Table of Contents (Optional)
